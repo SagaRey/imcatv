@@ -14,10 +14,6 @@ $grid-gutter-width: 12px;
 
 $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 
-<% if Rails.env.production? %>
-  $icon-font-path: "/imbatv/assets/bootstrap/";
-<% end %>
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
