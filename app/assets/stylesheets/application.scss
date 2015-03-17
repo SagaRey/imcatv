@@ -1,16 +1,22 @@
 $purple: #493B9A;
-$purple_darker: darken($purple, 36%);
-$purple_dark: darken($purple, 12%);
+$purple_darker: darken($purple, 32%);
+$purple_dark: darken($purple, 10%);
 $purple_lighter: lighten($purple, 36%);
 $purple_light: lighten($purple, 12%);
 
-$navbar-inverse-bg: $purple;
+$navbar-inverse-bg: $purple_dark;
 
 $navbar-inverse-color: #fff;
 
 $navbar-inverse-link-color: #fff;
 
-$grid-gutter-width: 12px;
+$panel-default-heading-bg: darken($purple, 4%);
+
+$panel-default-text: #fff;
+
+$panel-default-border: $purple;
+
+$grid-gutter-width: 8px;
 
 $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 
@@ -18,13 +24,14 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 @import "bootstrap";
 
 .header {
-  margin-bottom: 2px;
+  margin-bottom: -8px;
+  box-shadow: 0px 2px 6px $purple_darker;
 }
 
 #carousel-generic {
   border: 1px solid $purple_darker;
   border-radius: 4px;
-  box-shadow: -6px 6px 6px $purple_darker;
+  // box-shadow: -6px 6px 6px $purple_darker;
 }
 
 #logo {
@@ -33,8 +40,8 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 #search {
-  border: 1px solid $purple_dark;
-  background-color: $purple;
+  border: 1px solid $purple_darker;
+  background-color: $purple_dark;
   color: #fff;
   box-shadow: -1px 1px 1px $purple_darker inset;
 }
@@ -53,4 +60,12 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   border-left: 1px solid $gray-light;
   border-bottom: 1px solid $gray-light;
   font-size: $font-size-h4;
+}
+
+.row + .row {
+  margin-top: 4px;
+}
+
+.panel {
+  margin-bottom: 4px;
 }
