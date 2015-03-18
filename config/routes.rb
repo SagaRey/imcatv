@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   post     'login'      =>  'static_pages#login'
 
-  get     'manage'      =>  'static_pages#manage'
+  get     'logout'      =>  'static_pages#logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

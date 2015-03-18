@@ -52,9 +52,9 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   span {
     padding: 8px;
     color: $gray-lighter;
-  }
-  button {
-    color: $gray-lighter;
+    a {
+      color: $gray-lighter;
+    }
   }
   position: fixed;
   left: 0;

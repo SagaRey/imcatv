@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <button type="button" class="btn btn-link pull-left" data-toggle="modal" data-target=".login-modal">Admin</button>
-        <span class="pull-right">© Rey. All Rights Reserved.</span>
+        <span class="pull-right">© <a href data-toggle="modal" data-target=".login-modal">Rey</a>. All Rights Reserved.</span>
       </div>
     </div>
   </div>
@@ -19,10 +18,14 @@
       <%= form_for :admin, url: login_path do |f| %>
       <form method="post" action="/login">
       <div class="modal-body">
+          <% if admin_logged? %>
+            <a href="/logout" class="btn btn-primary btn-block">注销</a>
+          <% else %>
           <div class="form-group">
-            <label for="recipient-name" class="control-label">密码:</label>
+            <label for="recipient-name" class="control-label">密码</label>
             <%= f.password_field :password, class: "form-control" %>
           </div>
+          <% end -%>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">确认</button>
