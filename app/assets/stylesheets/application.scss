@@ -1,22 +1,24 @@
 $purple: #493B9A;
-$purple_darker: darken($purple, 32%);
-$purple_dark: darken($purple, 10%);
-$purple_lighter: lighten($purple, 36%);
-$purple_light: lighten($purple, 12%);
+$purple-darkest: darken($purple, 32%);
+$purple-darker: darken($purple, 10%);
+$purple-dark: darken($purple, 6%);
+$purple-lightest: lighten($purple, 36%);
+$purple-lighter: lighten($purple, 12%);
+$purple-light: lighten($purple, 6%);
 
-$navbar-inverse-bg: $purple_dark;
+$grid-gutter-width: 8px;
+
+$navbar-inverse-bg: $purple-darker;
 
 $navbar-inverse-color: #fff;
 
 $navbar-inverse-link-color: #fff;
 
-$panel-default-heading-bg: darken($purple, 4%);
+$panel-default-heading-bg: $purple-dark;
 
 $panel-default-text: #fff;
 
 $panel-default-border: $purple;
-
-$grid-gutter-width: 8px;
 
 $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 
@@ -24,14 +26,16 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 @import "bootstrap";
 
 .header {
-  margin-bottom: -8px;
-  box-shadow: 0px 2px 6px $purple_darker;
+  margin-bottom: -3px;
+  box-shadow: 0px 2px 6px $purple-darkest;
 }
 
 #carousel-generic {
-  border: 1px solid $purple_darker;
+  border: 1px solid $purple-darkest;
   border-radius: 4px;
-  // box-shadow: -6px 6px 6px $purple_darker;
+  img {
+    border-radius: 3px;
+  }
 }
 
 #logo {
@@ -40,14 +44,14 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 #search {
-  border: 1px solid $purple_darker;
-  background-color: $purple_dark;
+  border: 1px solid $purple-darkest;
+  background-color: $purple-darker;
   color: #fff;
-  box-shadow: -1px 1px 1px $purple_darker inset;
+  box-shadow: -1px 1px 1px $purple-darkest inset;
 }
 
 .form-control-feedback {
-  color: $purple_lighter;
+  color: $purple-lightest;
 }
 
 .label-carousel {
@@ -63,9 +67,20 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 .row + .row {
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .panel {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+}
+
+#notice {
+  margin-bottom: 0px;
+  a {
+    color: #fff;
+  }
+  button {
+    color: #fff;
+    opacity: 0.6;
+  }
 }
