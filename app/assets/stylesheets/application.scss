@@ -156,6 +156,10 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   color: $gray-light;
 }
 
+.title {
+  padding: 0px 8px;
+}
+
 .content {
   font-size: $font-size-h4;
   background-color: #fff;
