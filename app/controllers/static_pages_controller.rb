@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @news = News.order(:created_at :desc).take(8)
+    @news = News.order(created_at: :desc).take(8)
   end
 
   def login
