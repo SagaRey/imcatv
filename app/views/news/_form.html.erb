@@ -1,0 +1,29 @@
+<%= form_for(@news) do |f| %>
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
+
+      <ul>
+      <% @news.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br>
+  <div class="field">
+    <h4>标题</h4>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <br>
+  <div class="field">
+    <h4>内容</h4>
+    <%= f.text_area :content, class: "form-control", rows: 8 %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "提交", class: "btn btn-sm btn-primary" %>
+  </div>
+<% end %>
+<br>

@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'carrierwave'
 gem 'mini_magick', '~> 3.8.1'
 gem 'autoprefixer-rails'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
+    @news = News.order(:created_at).take(8)
   end
 
   def login
@@ -8,12 +9,12 @@ class StaticPagesController < ApplicationController
       admin_login
       redirect_to manage_url
     else
+      admin_logout
       redirect_to root_url
     end
   end
 
   def manage
     redirect_to root_url unless admin_logged?
-    admin_logout
   end
 end

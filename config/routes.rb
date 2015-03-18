@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :news
+
   root 'static_pages#home'
 
   post     'login'      =>  'static_pages#login'

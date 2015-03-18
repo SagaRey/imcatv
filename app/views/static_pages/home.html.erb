@@ -1,11 +1,11 @@
 <div id="home" class="container bodyer">
   <div class="row">
     <div class="col-md-12">
-      <div id="notice" class="panel panel-default">
+      <div id="notify" class="panel panel-default">
         <!-- <div class="panel-heading" style="padding-top: 0px;"></div> -->
         <div class="panel-heading">
             <a href="#">第三届i联赛开始报名啦 !</a>
-            <button id="notice-close" type="button" class="close">&times;</button>
+            <button id="notify-close" type="button" class="close">&times;</button>
         </div>
       </div>
     </div>
@@ -64,20 +64,11 @@
   <div class="row" id="panels">
     <div class="col-md-8">
       <div class="panel panel-default">
-        <div class="panel-heading">新闻<a href="#" class="badge pull-right">More</a></div>
+        <div class="panel-heading">新闻<a href="news" class="badge pull-right">More</a></div>
         <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+        <% @news.each do |news| %>
+          <li class="list-group-item"><%= link_to news.title, news %> <small class="pull-right time hidden-xs"><%= news.created_at.getlocal.to_s[5..-10] %></small></li>
+        <% end -%>
         </ul>
       </div>
     </div>
@@ -93,17 +84,13 @@
           <li class="list-group-item">Cras justo odio</li>
           <li class="list-group-item">Dapibus ac facilisis in</li>
           <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
         </ul>
       </div>
     </div>
   </div>
 </div>
 <script>
-  $('#notice-close').bind('click', function() {
+  $('#notify-close').bind('click', function() {
     $('#home').animate({marginTop: "-55px"}, 120);
   });
 </script>
