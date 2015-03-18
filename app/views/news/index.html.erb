@@ -28,12 +28,12 @@
           <tbody>
             <% @news.each do |news| %>
             <tr>
-              <td><%= link_to news.title[0..20], news %></td>
+              <td><%= link_to news.title[0..15], news %></td>
               <td class="hidden-xs hidden-sm"><%= news.content[0..36] %></td>
               <td class="hidden-xs"><%= news.created_at.getlocal.to_s[5..-10] %></td>
               <% if admin_logged? %>
               <td><%= link_to '编辑', edit_news_path(news) %></td>
-              <td><%= link_to '删除', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to '删除', news, method: :delete, data: { confirm: '确定删除?' } %></td>
               <% end -%>
             </tr>
             <% end %>
