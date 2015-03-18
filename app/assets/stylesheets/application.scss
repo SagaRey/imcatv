@@ -20,27 +20,32 @@ $panel-default-text: #fff;
 
 $panel-default-border: $purple;
 
+$btn-primary-bg: $purple;
+
+$btn-primary-border: $purple-dark;
+
 $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 .header {
-  margin-bottom: -3px;
   box-shadow: 0px 2px 6px $purple-darkest;
 }
 
+.bodyer {
+  margin-top: -25px;
+}
+
 .footer {
-  margin-top: 20px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   background-color: $purple-dark;
-  box-shadow: 0px 3px 6px $purple-darkest inset;
+  // box-shadow: 0px 3px 6px $purple-darkest inset;
+  border-radius: 4px;
   span {
     padding: 8px;
     color: $gray-lighter;
-  }
-  a {
-    padding: 8px;
-    color: $gray-light;
   }
 }
 
@@ -126,4 +131,9 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 
 #panels {
   margin-top: 0px;
+}
+
+#login {
+  height: 800px;
+  background-color: $purple-dark;
 }

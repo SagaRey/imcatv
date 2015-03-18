@@ -1,107 +1,109 @@
-<div class="row">
-  <div class="col-md-12">
-    <div id="notice" class="panel panel-default">
-      <div class="panel-heading">
-        <a href="#">第三届i联赛开始报名啦 !</a>
-        <button type="button" class="close">&times;</button>
+<div id="home" class="container bodyer">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="notice" class="panel panel-default">
+        <!-- <div class="panel-heading" style="padding-top: 0px;"></div> -->
+        <div class="panel-heading">
+            <a href="#">第三届i联赛开始报名啦 !</a>
+            <button id="notice-close" type="button" class="close">&times;</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div id="carousel" class="col-md-12">
-    <div id="carousel-generic" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-generic" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <a class="item active" href="#">
-          <span class="label label-carousel">Dota2: 维萨吉</span>
-          <img src="<%= image_path 'dota22.jpg' %>" alt="Dota2">
+  <div class="row">
+    <div id="carousel" class="col-md-12">
+      <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-generic" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <a class="item active" href="#">
+            <span class="label label-carousel">Dota2: 维萨吉</span>
+            <img src="<%= image_path 'dota22.jpg' %>" alt="Dota2">
+          </a>
+          <a class="item" href="#">
+            <span class="label label-carousel">炉石传说 冒险模式: 黑石山的火焰</span>
+            <img src="<%= image_path 'hs2.jpg' %>" alt="炉石传说">
+          </a>
+          <a class="item" href="#">
+            <span class="label label-carousel">风暴英雄</span>
+            <img src="<%= image_path 'heroes2.jpg' %>" alt="风暴英雄">
+          </a>
+        </div>
+        <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
         </a>
-        <a class="item" href="#">
-          <span class="label label-carousel">炉石传说 冒险模式: 黑石山的火焰</span>
-          <img src="<%= image_path 'hs2.jpg' %>" alt="炉石传说">
-        </a>
-        <a class="item" href="#">
-          <span class="label label-carousel">风暴英雄</span>
-          <img src="<%= image_path 'heroes2.jpg' %>" alt="风暴英雄">
+        <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
         </a>
       </div>
-      <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-    <div class="thumbnail">
-      <a href="#"><img src="<%= image_path 'sing.jpg' %>" alt="游戏麦霸我最6"></a>
-      <div class="caption">
-        <span>游戏麦霸我最6<a href="#" class="badge pull-right" role="button">投票</a></span>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <a href="#"><img src="<%= image_path 'sing.jpg' %>" alt="游戏麦霸我最6"></a>
+        <div class="caption">
+          <span>游戏麦霸我最6<a href="#" class="badge pull-right" role="button">投票</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="thumbnail">
+        <a href="#"><img src="<%= image_path 'i.jpg' %>" alt="i联赛"></a>
+        <div class="caption">
+          <span>i联赛第三赛季<a href="#" class="badge pull-right" role="button">报名</a></span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="thumbnail">
-      <a href="#"><img src="<%= image_path 'i.jpg' %>" alt="i联赛"></a>
-      <div class="caption">
-        <span>i联赛第三赛季<a href="#" class="badge pull-right" role="button">报名</a></span>
+  <div class="row" id="panels">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">新闻<a href="#" class="badge pull-right">More</a></div>
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">节目表<a href="#" class="badge pull-right">More</a></div>
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
-<div class="row" id="panels">
-  <div class="col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">新闻<a href="#" class="badge pull-right">More</a></div>
-      <ul class="list-group">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">节目表<a href="#" class="badge pull-right">More</a></div>
-      <ul class="list-group">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
 <script>
-  $('#notice .close').bind('click', function() {
-    $('.header').animate({marginBottom: "-33px"}, 120);
+  $('#notice-close').bind('click', function() {
+    $('#home').animate({marginTop: "-55px"}, 120);
   });
 </script>
