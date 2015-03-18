@@ -13,7 +13,7 @@ require 'mina/git'
 set :domain, '114.215.89.183'
 set :deploy_to, '/home/saga/imbatv'
 set :repository, 'git@github.com:SagaRey/testtv.git'
-set :branch, 'master'
+set :branch, 'develop'
 
 # For system-wide RVM install.
 #   set :rvm_path, '/usr/local/rvm/bin/rvm'
