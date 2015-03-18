@@ -47,6 +47,8 @@ GEM
       sass (>= 3.2.19)
     bootstrap-will_paginate (0.0.10)
       will_paginate
+    bootstrap3-datetimepicker-rails (4.7.14)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.2)
     byebug (4.0.2)
       columnize (= 0.9.0)
@@ -89,6 +91,8 @@ GEM
       subexec (~> 0.2.1)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    momentjs-rails (2.9.0)
+      railties (>= 3.1)
     multi_json (1.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -174,12 +178,14 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (= 3.3.3)
   bootstrap-will_paginate
+  bootstrap3-datetimepicker-rails
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick (~> 3.8.1)
+  momentjs-rails
   pry-rails
   rails (= 4.2.0)
   sass-rails (~> 5.0)
