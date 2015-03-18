@@ -1,7 +1,7 @@
 $purple: #493B9A;
-$purple-darkest: darken($purple, 32%);
-$purple-darker: darken($purple, 10%);
-$purple-dark: darken($purple, 6%);
+$purple-darkest: darken($purple, 24%);
+$purple-darker: darken($purple, 8%);
+$purple-dark: darken($purple, 3%);
 $purple-lightest: lighten($purple, 36%);
 $purple-lighter: lighten($purple, 12%);
 $purple-light: lighten($purple, 6%);
@@ -28,6 +28,20 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 .header {
   margin-bottom: -3px;
   box-shadow: 0px 2px 6px $purple-darkest;
+}
+
+.footer {
+  margin-top: 20px;
+  background-color: $purple-dark;
+  box-shadow: 0px 3px 6px $purple-darkest inset;
+  span {
+    padding: 8px;
+    color: $gray-lighter;
+  }
+  a {
+    padding: 8px;
+    color: $gray-light;
+  }
 }
 
 #carousel-generic {
@@ -83,4 +97,33 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
     color: #fff;
     opacity: 0.6;
   }
+}
+
+.thumbnail {
+  padding: 0px;
+  margin-bottom: 6px;
+  border: 1px solid $purple-darkest;
+  background-color: $purple-dark;
+  img {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  .caption {
+    span {
+      color: #fff;
+      font-size: $font-size-base;
+      .badge {
+        background-color: #fff;
+        color: $purple-dark;
+      }
+    }
+  }
+}
+
+.badge {
+  padding: 4px 8px;
+}
+
+#panels {
+  margin-top: 0px;
 }
