@@ -14,7 +14,7 @@
       <% if admin_logged? %>
       <button type="button" class="btn btn-sm btn-default"><%= link_to '编辑', edit_news_path(@news) %></button>
       <% end -%>
-      <button type="button" class="btn btn-sm btn-default"><%= link_to '返回', news_index_path %></button>
+      <button type="button" class="btn btn-sm btn-default"><%= link_to '返回', request.referrer %></button>
     </div>
   </div>
 </div>
