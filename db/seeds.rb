@@ -434,3 +434,12 @@ Program.create([
                   { datatime: "2015-03-15 晚上7点00", content: "游戏麦霸我最6: 囚徒"},
                   { datatime: "2015-03-17 晚上7点00", content: "游戏麦霸我最6: 29"},
                   { datatime: "2015-03-19 晚上7点00", content: "游戏麦霸我最6: 马甲哥"} ])
+
+News.order(created_at: :desc).take(8).each do |news|
+  news.comments.create!(commenter: "巨魔", body: "巨魔战将上战场!")
+  news.comments.create!(commenter: "JUGG", body: "无敌斩")
+  news.comments.create!(commenter: "敌法师", body: "BurNing冠名英雄")
+  news.comments.create!(commenter: "卡尔", body: "火冰火")
+  news.comments.create!(commenter: "430", body: "魔法少女四三零")
+  news.comments.create!(commenter: "神灵武士", body: "沸血之矛")
+end

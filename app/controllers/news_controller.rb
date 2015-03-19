@@ -6,8 +6,8 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     @news = News.page(params[:page]).order('created_at DESC')
-    @news_day = News.where("created_at > ?", Time.zone.now - 1.day).order('view DESC').order('created_at DESC').take(8)
-    @news_week = News.where("created_at > ?", Time.zone.now - 1.week).order('view DESC').order('created_at DESC').take(8)
+    @news_day = News.where("created_at > ?", Time.zone.now - 1.day).order('view DESC').order('created_at DESC').take(6)
+    @news_week = News.where("created_at > ?", Time.zone.now - 1.week).order('view DESC').order('created_at DESC').take(9)
   end
 
   # GET /news/1
