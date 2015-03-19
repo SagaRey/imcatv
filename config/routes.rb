@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :programs
 
-  resources :news
+  resources :news do
+    resources :comments
+  end
 
   root 'static_pages#home'
 
