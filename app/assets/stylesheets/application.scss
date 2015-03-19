@@ -158,7 +158,8 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 .title {
-  padding: 0px 8px;
+  border-left: 6px solid $purple-dark;
+  border-radius: 3px;
 }
 
 .content {
@@ -177,5 +178,5 @@ blockquote {
   padding: 2px 20px;
   margin-bottom: 12px;
   border-radius: 2px;
-  border-left: 3px solid $gray-lighter;
+  border-left: 3px solid $purple-dark;
 }

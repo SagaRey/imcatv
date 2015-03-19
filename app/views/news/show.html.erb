@@ -7,8 +7,7 @@
         <%= notice %>
       </div>
       <% end -%>
-
-      <h3 class="title"><%= @news.title %></h3><br>
+      <blockquote class="title"><h3><%= @news.title %></h3> <footer><%= @news.created_at.getlocal.to_s[0..-10] %></footer></blockquote>
       <pre class="content"><%= @news.content %></pre><br>
 
       <% if admin_logged? %>
@@ -46,7 +45,7 @@
         <div class="form-group">
           <%= f.text_area :body, rows: 3, class: "form-control", placeholder: "说点什么吧~" %>
         </div>
-        <%= f.submit "提交", class: "btn btn-default btn-block"  %>
+        <%= f.submit "提交", class: "btn btn-primary btn-block"  %>
       </div>
       <% end %>
     </div>
