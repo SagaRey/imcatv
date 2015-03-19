@@ -26,9 +26,12 @@ class NewsController < ApplicationController
   # POST /news.json
   def create
     @news = News.new(news_params)
-
     respond_to do |format|
       if @news.save
+        if @news.notify?
+          remove_notify
+          set_notify
+        end
         format.html { redirect_to @news, notice: 'News was successfully created.' }
         format.json { render :show, status: :created, location: @news }
       else
@@ -43,6 +46,10 @@ class NewsController < ApplicationController
   def update
     respond_to do |format|
       if @news.update(news_params)
+        if @news.reload.notify?
+          remove_notify
+          set_notify
+        end
         format.html { redirect_to @news, notice: 'News was successfully updated.' }
         format.json { render :show, status: :ok, location: @news }
       else
@@ -70,10 +77,18 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:title, :content)
+      params.require(:news).permit(:title, :content, :notify)
     end
 
     def is_admin
       redirect_to root_url unless admin_logged?
+    end
+
+    def remove_notify
+      News.where("notify == ?", true).each { |news| news.update_attribute(:notify, nil) }
+    end
+
+    def set_notify
+      @news.reload.update_attribute(:notify, true)
     end
 end

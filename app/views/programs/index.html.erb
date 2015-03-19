@@ -18,7 +18,11 @@
           <tbody>
             <% @programs.each do |program| %>
             <tr>
+              <% if admin_logged? %>
               <td><%= link_to program.datatime, program %></td>
+              <% else %>
+              <td><%= link_to program.datatime, "http://www.douyutv.com/imba", target: "_blank" %></td>
+              <% end -%>
               <% if admin_logged? %>
               <td class="hidden-xs"><%= program.content %></td>
               <% else %>

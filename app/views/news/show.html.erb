@@ -15,7 +15,7 @@
       <button type="button" class="btn btn-sm btn-default"><%= link_to '编辑', edit_news_path(@news) %></button>
       <button type="button" class="btn btn-sm btn-default"><%= link_to '删除', @news, method: :delete, data: { confirm: '确定删除?' } %></button>
       <% end -%>
-      <button type="button" class="btn btn-sm btn-default"><%= link_to '返回', news_path %></button>
+      <button type="button" class="btn btn-sm btn-default"><%= link_to '返回', news_index_path %></button>
     </div>
   </div>
 </div>

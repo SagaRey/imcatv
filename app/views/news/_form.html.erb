@@ -22,6 +22,12 @@
     <%= f.text_area :content, class: "form-control", rows: 8 %>
   </div>
   <br>
+  <div class="checkbox">
+    <label>
+      <%= f.check_box :notify %> 公告?
+    </label>
+  </div>
+  <br>
   <div class="actions">
     <%= f.submit "提交", class: "btn btn-sm btn-primary" %>
   </div>

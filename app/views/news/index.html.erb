@@ -19,9 +19,9 @@
             <% @news.each do |news| %>
             <tr>
               <% if admin_logged? %>
-              <td><%= link_to news.title[0..12], news %></td>
+              <td><%= link_to news.title[0..12], news %> <span class="label label-danger"><%= "公告" if news.notify? %></span></td>
               <% else %>
-              <td><%= link_to news.title[0..20], news %></td>
+              <td><%= link_to news.title[0..20], news %> <span class="label label-danger"><%= "公告" if news.notify? %></span></td>
               <% end -%>
               <td class="hidden-xs hidden-sm"><%= news.content[0..36] %></td>
               <td class="hidden-xs"><%= news.created_at.getlocal.to_s[5..-10] %></td>
