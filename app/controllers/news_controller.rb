@@ -6,11 +6,14 @@ class NewsController < ApplicationController
   # GET /news.json
   def index
     @news = News.page(params[:page]).order('created_at DESC')
+    @news_day = News.where("created_at > ?", Time.zone.now - 1.day).order('view DESC').order('created_at DESC').take(8)
+    @news_week = News.where("created_at > ?", Time.zone.now - 1.week).order('view DESC').order('created_at DESC').take(8)
   end
 
   # GET /news/1
   # GET /news/1.json
   def show
+    add_view
   end
 
   # GET /news/new
@@ -90,5 +93,9 @@ class NewsController < ApplicationController
 
     def set_notify
       @news.reload.update_attribute(:notify, true)
+    end
+
+    def add_view
+      @news.update_attribute(:view, @news.view + 1)
     end
 end
