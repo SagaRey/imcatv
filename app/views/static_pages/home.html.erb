@@ -44,7 +44,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="thumbnail">
         <a href="#"><img src="<%= image_path 'sing.jpg' %>" alt="游戏麦霸我最6"></a>
         <div class="caption">
@@ -52,11 +52,19 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="thumbnail">
         <a href="#"><img src="<%= image_path 'i.jpg' %>" alt="i联赛"></a>
         <div class="caption">
           <span>i联赛第三赛季<a href="#" class="badge pull-right" role="button">报名</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="#"><img src="<%= image_path 'dac.jpg' %>" alt="DAC主赛事圆满结束"></a>
+        <div class="caption">
+          <span>DAC主赛事圆满结束<a href="#" class="badge pull-right" role="button">回顾</a></span>
         </div>
       </div>
     </div>
@@ -74,16 +82,11 @@
     </div>
     <div class="col-md-4">
       <div class="panel panel-default">
-        <div class="panel-heading">节目表<a href="#" class="badge pull-right">More</a></div>
+        <div class="panel-heading">节目表<a href="programs" class="badge pull-right">More</a></div>
         <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
+        <% @programs.each do |program| %>
+          <li class="list-group-item"><%= link_to program.content, "http://www.douyutv.com/imba" %> <small class="pull-right time"><%= program.datatime[5..-1] %></small></li>
+        <% end -%>
         </ul>
       </div>
     </div>

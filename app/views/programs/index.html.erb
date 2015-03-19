@@ -9,25 +9,24 @@
       <% end -%>
 
       <div class="panel panel-default">
-        <div class="panel-heading">新闻
+        <div class="panel-heading">节目单
           <% if admin_logged? %>
-          <span class="badge pull-right"><%= link_to '新建', new_news_path %></span>
+          <span class="badge pull-right"><%= link_to '新建', new_program_path %></span>
           <% end -%>
         </div>
         <table class="table">
           <tbody>
-            <% @news.each do |news| %>
+            <% @programs.each do |program| %>
             <tr>
+              <td><%= link_to program.datatime, program %></td>
               <% if admin_logged? %>
-              <td><%= link_to news.title[0..12], news %></td>
+              <td class="hidden-xs"><%= program.content %></td>
               <% else %>
-              <td><%= link_to news.title[0..20], news %></td>
+              <td><%= program.content %></td>
               <% end -%>
-              <td class="hidden-xs hidden-sm"><%= news.content[0..36] %></td>
-              <td class="hidden-xs"><%= news.created_at.getlocal.to_s[5..-10] %></td>
               <% if admin_logged? %>
-              <td><%= link_to '编辑', edit_news_path(news) %></td>
-              <td><%= link_to '删除', news, method: :delete, data: { confirm: '确定删除?' } %></td>
+              <td><%= link_to '编辑', edit_program_path(program) %></td>
+              <td><%= link_to '删除', program, method: :delete, data: { confirm: '确定删除?' } %></td>
               <% end -%>
             </tr>
             <% end %>
@@ -36,7 +35,7 @@
       </div>
     </div>
     <div class="col-md-12">
-      <%= will_paginate @news, previous_label: "&laquo;", next_label: "&raquo;", class: "pull-left" %>
+      <%= will_paginate @programs, previous_label: "&laquo;", next_label: "&raquo;", class: "pull-left" %>
     </div>
   </div>
 </div>

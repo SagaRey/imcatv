@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :programs
+
   resources :news
 
   root 'static_pages#home'

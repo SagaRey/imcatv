@@ -24,7 +24,7 @@ $btn-primary-bg: $purple;
 
 $btn-primary-border: $purple-dark;
 
-$alert-success-bg: $purple;
+$alert-success-bg: $purple-dark;
 
 $alert-success-text: #fff;
 
@@ -166,4 +166,8 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   background-color: #fff;
   padding: 20px 12px;
   border: 1px solid $gray-lighter;
+}
+
+.alert-notice {
+  padding-top: 5px;
 }

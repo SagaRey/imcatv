@@ -1,0 +1,21 @@
+<div class="container bodyer">
+  <div class="row">
+    <div class="col-md-12">
+      <% unless notice.nil? %>
+      <div class="alert alert-success alert-dismissible alert-notice" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= notice %>
+      </div>
+      <% end -%>
+
+      <h3 class="title"><%= @program.datatime %></h3><br>
+      <pre class="content"><%= @program.content %></pre><br>
+
+      <% if admin_logged? %>
+      <button type="button" class="btn btn-sm btn-default"><%= link_to '编辑', edit_program_path(@program) %></button>
+      <button type="button" class="btn btn-sm btn-default"><%= link_to '删除', @program, method: :delete, data: { confirm: '确定删除?' } %></button>
+      <% end -%>
+      <button type="button" class="btn btn-sm btn-default"><%= link_to '返回', programs_path %></button>
+    </div>
+  </div>
+</div>
