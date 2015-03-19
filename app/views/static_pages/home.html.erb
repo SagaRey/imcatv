@@ -88,7 +88,7 @@
         <div class="panel-heading">节目表<a href="programs" class="badge pull-right">More</a></div>
         <ul class="list-group">
         <% @programs.each do |program| %>
-          <li class="list-group-item"><%= link_to program.content, "http://www.douyutv.com/imba", target: "_blank" %> <small class="pull-right time"><%= program.datatime[5..-1] %></small></li>
+          <li class="list-group-item"><%= link_to program.content, program %> <small class="pull-right time"><%= program.datatime[5..-1] %></small></li>
         <% end -%>
         </ul>
       </div>
