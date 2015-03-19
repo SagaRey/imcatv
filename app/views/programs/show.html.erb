@@ -1,3 +1,4 @@
+<% provide(:title, @program.content) %>
 <div class="container bodyer">
   <div class="row">
     <div class="col-md-12">
@@ -8,7 +9,7 @@
       </div>
       <% end -%>
 
-      <h3 class="title"><%= @program.datatime %></h3><br>
+      <blockquote class="title"><h3><%= @program.datatime %></h3> <footer><%= @program.created_at.getlocal.to_s[0..-10] %></footer></blockquote>
       <pre class="content"><%= @program.content %></pre><br>
 
       <% if admin_logged? %>

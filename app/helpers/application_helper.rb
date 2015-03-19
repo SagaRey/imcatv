@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def admin_logged?
     if !session[:admin].nil? && session[:admin] == "admin"
       true
@@ -17,5 +18,14 @@ module ApplicationHelper
 
   def admin_logout
     session[:admin] = nil
+  end
+
+  def full_title(page_title = '')
+    base_title = "ImbaTV"
+    if page_title.empty?
+      base_title
+    else
+      "#{page_title} - #{base_title}"
+    end
   end
 end

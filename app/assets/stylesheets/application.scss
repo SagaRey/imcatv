@@ -1,7 +1,7 @@
-$purple: #493B9A;
-$purple-darkest: darken($purple, 24%);
-$purple-darker: darken($purple, 8%);
-$purple-dark: darken($purple, 3%);
+$purple: darken(#493B9A, 1.5%);
+$purple-darkest: darken($purple, 20%);
+$purple-darker: darken($purple, 6%);
+$purple-dark: darken($purple, 2%);
 $purple-lightest: lighten($purple, 36%);
 $purple-lighter: lighten($purple, 12%);
 $purple-light: lighten($purple, 6%);
@@ -14,19 +14,11 @@ $navbar-inverse-color: #fff;
 
 $navbar-inverse-link-color: #fff;
 
-$panel-default-heading-bg: $purple-dark;
-
-$panel-default-text: #fff;
-
-$panel-default-border: $purple;
-
-$btn-primary-bg: $purple;
-
-$btn-primary-border: $purple-dark;
-
 $alert-success-bg: $purple-dark;
 
 $alert-success-text: #fff;
+
+$brand-primary: $purple;
 
 $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 
@@ -44,7 +36,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 .footer {
-  margin-top: 12px;
+  margin-top: 24px;
   margin-bottom: 12px;
   // background-color: $purple-dark;
   background-color: transparent;
@@ -174,9 +166,18 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   padding-top: 5px;
 }
 
-blockquote {
+.comment {
   padding: 2px 20px;
   margin-bottom: 12px;
   border-radius: 2px;
   border-left: 3px solid $purple-dark;
+  p {
+    color: $gray-light;
+  }
+  footer::before {
+    color: $gray-lighter;
+  }
+  footer {
+    color: $gray-darker;
+  }
 }

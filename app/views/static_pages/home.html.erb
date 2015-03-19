@@ -1,7 +1,8 @@
+<% provide(:title, "首页") %>
 <div id="home" class="container bodyer">
   <div class="row">
     <div class="col-md-12">
-      <div id="notify" class="panel panel-default">
+      <div id="notify" class="panel panel-primary">
       <% if @notify.blank? %>
         <div class="panel-heading" style="padding-top: 0px;"></div>
       <% else -%>
@@ -74,7 +75,7 @@
   </div>
   <div class="row" id="panels">
     <div class="col-md-8">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">新闻<a href="news" class="badge pull-right">More</a></div>
         <ul class="list-group">
         <% @news.each do |news| %>
@@ -84,7 +85,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">节目表<a href="programs" class="badge pull-right">More</a></div>
         <ul class="list-group">
         <% @programs.each do |program| %>

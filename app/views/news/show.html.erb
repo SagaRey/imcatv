@@ -1,3 +1,4 @@
+<% provide(:title, @news.title) %>
 <div class="container bodyer">
   <div class="row">
     <div class="col-md-12">
@@ -23,15 +24,15 @@
         <h3>用户评论</h3>
       <% end -%>
       <% @news.comments.each do |comment| %>
-        <blockquote>
+        <blockquote class="comment">
           <% if admin_logged? %>
           <button type="button" class="btn btn-sm btn-default pull-right"><%= link_to '删除', [comment.news, comment],
                method: :delete,
                data: { confirm: '确定删除?' } %>
           </button>
           <% end -%>
-          <p><%= comment.body %></p>
-          <footer><%= comment.commenter %></footer>
+          <p><%= comment.commenter %></p>
+          <footer><%= comment.body %></footer>
         </blockquote>
       <% end %>
     </div>
