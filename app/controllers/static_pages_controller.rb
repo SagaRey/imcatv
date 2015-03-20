@@ -19,4 +19,7 @@ class StaticPagesController < ApplicationController
       admin_logout
       redirect_to request.referrer
   end
+
+  def ileague
+  end
 end

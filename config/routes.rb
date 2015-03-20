@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get     'logout'      =>  'static_pages#logout'
 
+  get     'ileague'    =>  'static_pages#ileague'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

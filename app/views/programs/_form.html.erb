@@ -11,14 +11,21 @@
 </div>
 <% end %>
 
-<br>
-<div class="field">
+<div class="form-group">
   <h4>时间</h4>
   <div class='input-group date' id='datetimepicker'>
-    <%= f.text_field :datatime, class: "form-control" %>
-    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-  </span>
+    <%= f.text_field :datatime, class: "form-control", placeholder: "时间" %>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+  </div>
 </div>
+<div class="form-group">
+  <h4>节目</h4>
+  <%= f.text_field :content, class: "form-control", placeholder: "节目" %>
+</div>
+<%= f.submit "提交", class: "btn btn-primary" %>
+<% end %>
+<br>
+
 <script type="text/javascript">
   $(function () {
     $('#datetimepicker').datetimepicker({
@@ -26,15 +33,3 @@
     });
   });
 </script>
-</div>
-<br>
-<div class="field">
-  <h4>节目</h4>
-  <%= f.text_field :content, class: "form-control" %>
-</div>
-<br>
-<div class="actions">
-  <%= f.submit "提交", class: "btn btn-primary" %>
-</div>
-<br>
-<% end %>
