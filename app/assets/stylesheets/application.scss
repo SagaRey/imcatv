@@ -189,3 +189,47 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
       font-size: ceil($font-size-base * 1.06);
   }
 }
+
+.kalaoke-img {
+  margin-top: 12px;
+  margin-bottom: -10px;
+}
+
+.singer {
+  h2 {
+    margin-top: 50px;
+    margin-bottom: 5px;
+  }
+  .panel-body {
+    height: 308px;
+    span {
+      font-size: $font-size-h4;
+    }
+  }
+}
+
+.pic {
+  width: 112px;
+  height: 112px;
+  border-radius: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 20px;
+  right: 26px;
+}
+
+.gravatar {
+  margin: 6px;
+  width: 100px;
+  height: 100px;
+}
+
+.karaoke {
+  margin-bottom: 16px;
+}
+
+.new-karaoke {
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+}

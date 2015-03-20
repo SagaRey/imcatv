@@ -19,7 +19,7 @@
           <tbody>
             <% @programs.each do |program| %>
             <tr>
-              <td><%= link_to program.datatime, program %></td>
+              <td><%= link_to program.datatime[5..-1], program %></td>
               <% if admin_logged? %>
               <td class="hidden-xs"><%= program.content %></td>
               <% else %>

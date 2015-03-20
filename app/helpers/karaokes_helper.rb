@@ -1,0 +1,2 @@
+module KaraokesHelper
+end

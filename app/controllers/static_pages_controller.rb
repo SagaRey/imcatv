@@ -11,7 +11,7 @@ class StaticPagesController < ApplicationController
       admin_login
       redirect_to request.referrer
     else
-      redirect_to root_url
+      redirect_to request.referrer
     end
   end
 

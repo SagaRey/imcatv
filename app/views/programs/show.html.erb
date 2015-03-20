@@ -13,10 +13,10 @@
       <pre class="content"><%= @program.content %></pre><br>
 
       <% if admin_logged? %>
-      <button type="button" class="btn btn-sm btn-default"><%= link_to '编辑', edit_program_path(@program) %></button>
-      <button type="button" class="btn btn-sm btn-default"><%= link_to '删除', @program, method: :delete, data: { confirm: '确定删除?' } %></button>
+      <button type="button" class="btn btn-default"><%= link_to '编辑', edit_program_path(@program) %></button>
+      <button type="button" class="btn btn-default"><%= link_to '删除', @program, method: :delete, data: { confirm: '确定删除?' } %></button>
       <% end -%>
-      <button type="button" class="btn btn-sm btn-default"><%= link_to '返回', programs_path %></button>
+      <button type="button" class="btn btn-default"><%= link_to '返回', programs_path %></button>
     </div>
   </div>
 </div>

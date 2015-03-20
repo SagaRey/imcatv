@@ -1,0 +1,14 @@
+<% provide(:title, "编辑选手信息") %>
+<div class="container bodyer">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>编辑选手信息</h2>
+      <br>
+
+      <%= render 'form' %>
+
+      <button type="button" class="btn btn-default"><%= link_to '显示', @karaoke %></button>
+      <button type="button" class="btn btn-default"><%= link_to '返回', karaokes_path %></button>
+    </div>
+  </div>
+</div>
