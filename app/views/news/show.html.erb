@@ -28,7 +28,7 @@
           <% if admin_logged? %>
           <%= link_to '删除', [comment.news, comment],
                method: :delete,
-               data: { confirm: '确定删除?' }, class: "btn btn-default" %>
+               data: { confirm: '确定删除?' }, class: "btn btn-default pull-right" %>
           <% end -%>
           <p><%= comment.commenter %> <span><%= comment.created_at.getlocal.to_s[5..15] %></span></p>
           <footer><%= comment.body %></footer>
