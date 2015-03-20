@@ -20,6 +20,8 @@ $alert-success-text: #fff;
 
 $brand-primary: $purple;
 
+$input-border-focus: $purple-lighter;
+
 $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 
 @import "bootstrap-sprockets";
@@ -172,12 +174,18 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   border-radius: 2px;
   border-left: 3px solid $purple-dark;
   p {
-    color: $gray-light;
+    color: $purple-darker;
+    font-size: ceil($font-size-base * 1.02);
+    span {
+      color: darken($gray-lighter, 12%);
+      font-size: ceil($font-size-base * 0.88);
+    }
   }
   footer::before {
     color: $gray-lighter;
   }
   footer {
     color: $gray-darker;
+      font-size: ceil($font-size-base * 1.08);
   }
 }

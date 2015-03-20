@@ -31,7 +31,7 @@
                data: { confirm: '确定删除?' } %>
           </button>
           <% end -%>
-          <p><%= comment.commenter %></p>
+          <p><%= comment.commenter %> <span><%= comment.created_at.getlocal.to_s[5..9] %></span></p>
           <footer><%= comment.body %></footer>
         </blockquote>
       <% end %>
