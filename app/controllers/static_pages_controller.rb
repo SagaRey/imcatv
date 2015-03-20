@@ -22,4 +22,7 @@ class StaticPagesController < ApplicationController
 
   def ileague
   end
+
+  def dac
+  end
 end
