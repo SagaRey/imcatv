@@ -7,8 +7,8 @@
 
       <%= render 'form' %>
 
-      <button type="button" class="btn btn-default"><%= link_to '显示', @karaoke %></button>
-      <button type="button" class="btn btn-default"><%= link_to '返回', karaokes_path %></button>
+      <%= link_to '显示', @karaoke, class: "btn btn-default" %>
+      <%= link_to '返回', karaokes_path, class: "btn btn-default" %>
     </div>
   </div>
 </div>

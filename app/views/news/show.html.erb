@@ -12,10 +12,10 @@
       <pre class="content"><%= @news.content %></pre><br>
 
       <% if admin_logged? %>
-      <button type="button" class="btn btn-default"><%= link_to '编辑', edit_news_path(@news) %></button>
-      <button type="button" class="btn btn-default"><%= link_to '删除', @news, method: :delete, data: { confirm: '确定删除?' } %></button>
+      <%= link_to '编辑', edit_news_path(@news), class: "btn btn-default" %>
+      <%= link_to '删除', @news, method: :delete, data: { confirm: '确定删除?' }, class: "btn btn-default" %>
       <% end -%>
-      <button type="button" class="btn btn-default"><%= link_to '返回', news_index_path %></button>
+      <%= link_to '返回', news_index_path, class: "btn btn-default" %>
     </div>
   </div>
   <div class="row">
@@ -26,10 +26,9 @@
       <% @news.comments.each do |comment| %>
         <blockquote class="comment">
           <% if admin_logged? %>
-          <button type="button" class="btn btn-default pull-right"><%= link_to '删除', [comment.news, comment],
+          <%= link_to '删除', [comment.news, comment],
                method: :delete,
-               data: { confirm: '确定删除?' } %>
-          </button>
+               data: { confirm: '确定删除?' }, class: "btn btn-default" %>
           <% end -%>
           <p><%= comment.commenter %> <span><%= comment.created_at.getlocal.to_s[5..15] %></span></p>
           <footer><%= comment.body %></footer>
