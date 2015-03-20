@@ -2,12 +2,12 @@
 <div class="container bodyer">
   <div class="row">
     <div class="col-md-12">
-      <% unless notice.nil? %>
+<!--       <% unless notice.nil? %>
       <div class="alert alert-success alert-dismissible alert-notice" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <%= notice %>
       </div>
-      <% end -%>
+      <% end -%> -->
 
       <blockquote class="title"><h3><%= @program.datatime %></h3> <footer><%= @program.created_at.getlocal.to_s[0..-10] %></footer></blockquote>
       <pre class="content"><%= @program.content %></pre><br>

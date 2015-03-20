@@ -200,10 +200,23 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
     margin-top: 50px;
     margin-bottom: 5px;
   }
+  .panel-heading {
+    background-image: image_url("singest.jpg");
+  }
   .panel-body {
-    height: 280px;
-    span {
-      font-size: $font-size-h4;
+    height: 300px;
+    blockquote {
+      border: 0px;
+      padding: 20px 10px;
+      p {
+        font-size: ceil($font-size-h3 * 0.88);
+      }
+      footer::before {
+        color: $gray-lighter;
+      }
+      footer {
+        font-size: ceil($font-size-h4 * 0.92);
+      }
     }
   }
 }

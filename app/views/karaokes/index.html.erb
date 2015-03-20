@@ -2,12 +2,12 @@
 <div class="container bodyer">
   <div class="row karaoke">
     <div class="col-md-12">
-      <% unless notice.nil? %>
+<!--       <% unless notice.nil? %>
       <div class="alert alert-success alert-dismissible alert-notice" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <%= notice %>
       </div>
-      <% end -%>
+      <% end -%> -->
       <img src="<%= image_path 'singer.jpg' %>" alt="游戏麦霸我最6" class="img-rounded img-responsive kalaoke-img">
       <% if admin_logged? %>
       <%= link_to '新建', new_karaoke_path, class: "btn btn-default new-karaoke" %>
@@ -25,8 +25,10 @@
           </div>
         </div>
         <div class="panel-body">
-          <h3><%= karaoke.actor %></h3>
-          <span><%= karaoke.introduction %></span>
+        <blockquote>
+          <p><%= karaoke.actor %></p>
+          <footer><%= karaoke.introduction %></footer>
+        </blockquote>
         </div>
         <table class="table">
           <tr>
