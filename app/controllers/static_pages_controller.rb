@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
   def home
     @news = News.order(created_at: :desc).take(8)
     @programs = Program.order(created_at: :desc).take(8)
-    @notify = News.where("notify == ?", true).order(created_at: :desc).first
+    @notify = News.where(notify: true).order(created_at: :desc).first
   end
 
   def login

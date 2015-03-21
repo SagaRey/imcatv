@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20150320122047) do
     t.string   "video1"
     t.string   "video2"
     t.integer  "ballot1",      default: 0
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.boolean  "vote"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "vote",         default: false
   end
 
   create_table "news", force: :cascade do |t|
