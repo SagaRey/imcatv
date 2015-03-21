@@ -77,7 +77,7 @@ class KaraokesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def karaoke_params
-      params.require(:karaoke).permit(:actor, :introduction, :picture, :video1, :video2, :ballot1, :vote)
+      params.require(:karaoke).permit(:actor, :introduction, :picture, :music1, :music2, :video1, :video2, :ballot1, :vote)
     end
 
     def is_admin

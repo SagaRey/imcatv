@@ -24,12 +24,20 @@
   <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', type: "file", class: "filestyle" %>
 </div>
 <div class="form-group">
-  <h4>视频 1</h4>
-  <%= f.text_field :video1, class: "form-control", placeholder: "视频 1 地址" %>
+  <h4>曲目 1</h4>
+  <%= f.text_field :music1, class: "form-control", placeholder: "曲目 1" %>
 </div>
 <div class="form-group">
-  <h4>视频 2</h4>
-  <%= f.text_field :video2, class: "form-control", placeholder: "视频 2 地址" %>
+  <h4>曲目 1 视频</h4>
+  <%= f.text_field :video1, class: "form-control", placeholder: "曲目 1 视频地址" %>
+</div>
+<div class="form-group">
+  <h4>曲目 2</h4>
+  <%= f.text_field :music2, class: "form-control", placeholder: "曲目 2" %>
+</div>
+<div class="form-group">
+  <h4>曲目 2 视频</h4>
+  <%= f.text_field :video2, class: "form-control", placeholder: "曲目 2 视频地址" %>
 </div>
 <div class="checkbox">
   <label>

@@ -32,15 +32,15 @@
         </div>
         <table class="table">
           <tr>
-            <% if karaoke.video1.blank? %>
+            <% if karaoke.music1.blank? %>
             <td><a class="btn btn-lg btn-block btn-default disabled">敬请期待</a></td>
             <% else %>
-            <td><a href="<%= karaoke.video1 %>" class="btn btn-lg btn-block btn-default">视频 1</a></td>
+            <td width="50%"><a href="<%= karaoke.video1 %>" class="btn btn-lg btn-block btn-default"><%= karaoke.music1 %></a></td>
             <% end -%>
-            <% if karaoke.video2.blank? %>
+            <% if karaoke.music2.blank? %>
             <td><a class="btn btn-lg btn-block btn-default disabled">敬请期待</a></td>
             <% else %>
-            <td><a href="<%= karaoke.video1 %>" class="btn btn-lg btn-block btn-default">视频 2</a></td>
+            <td width="50%"><a href="<%= karaoke.video2 %>" class="btn btn-lg btn-block btn-default"><%= karaoke.music2 %></a></td>
             <% end -%>
           </tr>
           <tr>
