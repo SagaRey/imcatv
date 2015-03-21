@@ -11,6 +11,8 @@ class KaraokesController < ApplicationController
   # GET /karaokes/1
   # GET /karaokes/1.json
   def show
+    add_ballot1
+    cookies.permanent[@karaoke.actor.downcase] = @karaoke.ballot1
     redirect_to karaokes_url
   end
 
@@ -42,19 +44,13 @@ class KaraokesController < ApplicationController
   # PATCH/PUT /karaokes/1
   # PATCH/PUT /karaokes/1.json
   def update
-    if params[:karaoke].nil?
-      add_ballot1
-      cookies.permanent[@karaoke.actor.downcase] = @karaoke.ballot1
-      redirect_to karaokes_url
-    else
-      respond_to do |format|
-        if @karaoke.update(karaoke_params)
-          format.html { redirect_to @karaoke, notice: 'Karaoke was successfully updated.' }
-          format.json { render :show, status: :ok, location: @karaoke }
-        else
-          format.html { render :edit }
-          format.json { render json: @karaoke.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @karaoke.update(karaoke_params)
+        format.html { redirect_to @karaoke, notice: 'Karaoke was successfully updated.' }
+        format.json { render :show, status: :ok, location: @karaoke }
+      else
+        format.html { render :edit }
+        format.json { render json: @karaoke.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -89,4 +85,4 @@ class KaraokesController < ApplicationController
         @karaoke.update_attribute(:ballot1, @karaoke.ballot1 + 1)
       end
     end
-end
+  end
