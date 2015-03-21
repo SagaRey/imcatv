@@ -6,7 +6,7 @@ class CreateKaraokes < ActiveRecord::Migration
       t.string :picture
       t.string :video1
       t.string :video2
-      t.int :ballot1, default: 0
+      t.integer :ballot1, default: 0
 
       t.timestamps null: false
     end
