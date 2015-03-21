@@ -88,7 +88,7 @@ class NewsController < ApplicationController
     end
 
     def remove_notify
-      News.where("notify == ?", true).each { |news| news.update_attribute(:notify, nil) }
+      News.where(notify: true).each { |news| news.update_attribute(:notify, nil) }
     end
 
     def set_notify
