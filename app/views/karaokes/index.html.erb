@@ -45,13 +45,13 @@
           </tr>
           <tr>
             <% if karaoke.vote? %>
-            <%= form_for karaoke do |f| %>
-            <% if cookies.permanent[karaoke.actor.downcase].nil? %>
-            <td colspan="2"><%= f.submit "投TA一票", class: "btn btn-lg btn-block btn-primary" %></td>
-            <% else %>
-            <td colspan="2"><a class="btn btn-lg btn-block btn-primary disabled">当前票数: <small><%= karaoke.ballot1 %></small></a></td>
-            <% end -%>
-            <% end -%>
+              <% if cookies.permanent[karaoke.actor.downcase].nil? %>
+                <%= form_for karaoke do |f| %>
+                <td colspan="2"><%= f.submit "投TA一票", class: "btn btn-lg btn-block btn-primary" %></td>
+                <% end -%>
+              <% else %>
+              <td colspan="2"><a class="btn btn-lg btn-block btn-primary disabled">当前票数: <small><%= karaoke.ballot1 %></small></a></td>
+              <% end -%>
             <% else %>
               <% if karaoke.ballot1 == 0 %>
               <td colspan="2"><a class="btn btn-lg btn-block btn-primary disabled">敬请期待</a></td>
