@@ -17,6 +17,7 @@ gem 'autoprefixer-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pg', group: :production
 
 group :development, :test do
   gem 'byebug'
