@@ -10,7 +10,7 @@
               <div class="thumbnail" style="padding:0px; margin-bottom:0px; border:0px">
                 <a href="<%= $dota2_live_list[value][:href] %>" target="_blank">
                 <img class="lazy" src="<%= image_path 'dota2.jpg' %>" data-original="<%= $dota2_live_list[value][:img] %>" style="width:100%; border-top-left-radius:3px; border-top-right-radius:3px">
-                  <span class="label label-<%= $label[$dota2_live_list[value][:site]] %>" style="position:absolute; right:8px; top:4px;">
+                  <span class="label" style="position:absolute; right:8px; top:4px; background-color:<%= $color[$dota2_live_list[value][:site]] %>">
                     <h5 style="margin:2px"><%= $dota2_live_list[value][:nnt] %></h5>
                   </span>
               </div>
