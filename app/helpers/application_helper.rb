@@ -28,4 +28,12 @@ module ApplicationHelper
       "#{page_title} - #{base_title}"
     end
   end
+
+  def active_li(page_title = '', title = 'Imbatv')
+    if page_title == title
+      'class=active'
+    else
+      ''
+    end
+  end
 end
