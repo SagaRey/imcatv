@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get     'dac'         =>  'static_pages#dac'
 
+  get     'live'         =>  'static_pages#live'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

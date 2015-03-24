@@ -16,6 +16,7 @@ gem 'mini_magick', '~> 3.8.1'
 gem 'autoprefixer-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'mechanize'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg', group: :production
 
