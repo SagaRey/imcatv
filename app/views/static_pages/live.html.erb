@@ -5,12 +5,12 @@
       <div class="row">
         <% $dota2_live_list_sort.sort{ |x, y| y <=> x }.each do |key, value| %>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
-          <div class="panel panel-default" style="border:0px; box-shadow:-3px 3px 9px #000000">
+          <div class="panel panel-default" style="border:1px solid #493B9A">
             <div class="panel-body" style="padding:0px">
               <div class="thumbnail" style="padding:0px; margin-bottom:0px; border:0px">
                 <a href="<%= $dota2_live_list[value][:href] %>" target="_blank">
                 <img class="lazy" src="<%= image_path 'dota2.jpg' %>" data-original="<%= $dota2_live_list[value][:img] %>" style="width:100%; border-top-left-radius:3px; border-top-right-radius:3px">
-                  <span class="label label-<%= $label[$dota2_live_list[value][:site]] %>" style="position:absolute; right:5px; top:0px; box-shadow:2px -2px 3px #000000 inset; border-top-left-radius:0px; border-bottom-right-radius:0px">
+                  <span class="label label-<%= $label[$dota2_live_list[value][:site]] %>" style="position:absolute; right:5px; top:0px; border-top-left-radius:0px; border-bottom-right-radius:0px">
                     <h5 style="margin:2px"><%= $dota2_live_list[value][:nnt] %></h5>
                   </span>
               </div>
