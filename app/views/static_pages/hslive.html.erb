@@ -1,7 +1,7 @@
-<% provide(:title, "直播聚合") %>
+<% provide(:title, "炉石传说 - 直播聚合") %>
 <div class="container">
   <div class="row">
-    <div class="col-md-12" style="margin-top: -12px">
+    <div class="col-md-12" style="margin-top:-12px; margin-bottom:30px">
       <div class="row">
         <% $hs_live_list_sort.sort{ |x, y| y <=> x }.each do |key, value| %>
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
@@ -13,6 +13,7 @@
                   <span class="label" style="position:absolute; right:8px; top:4px; background-color:<%= $color[$hs_live_list[value][:site]] %>">
                     <h5 style="margin:2px"><%= $hs_live_list[value][:nnt] %></h5>
                   </span>
+                </a>
               </div>
             </div>
             <div class="panel-footer" style="padding:8px; border-color:<%= $color[$hs_live_list[value][:site]] %>">
