@@ -186,7 +186,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   }
   footer {
     color: $gray-darker;
-      font-size: ceil($font-size-base * 1.06);
+    font-size: ceil($font-size-base * 1.06);
   }
 }
 
@@ -249,30 +249,27 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 
 // ti5
 
-body {
+.header {
   background-image: image_url('ti5.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center top;
 }
 
-.header {
-  background-color: transparent;
-}
+.ti5 {
+  background-image: image_url('ti5.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
 
-#carousel-generic {
-  border: 0px;
-  ol, .label, .carousel-control {
-    opacity: 0;
+  .header {
+    background-color: transparent;
   }
-}
 
-h2 {
-  color: $purple-lightest;
-}
-
-.form-group {
-  h4 {
-    color: $purple-lightest;
+  #carousel-generic {
+    border: 0px;
+    ol, .label, .carousel-control {
+      opacity: 0;
+    }
   }
 }

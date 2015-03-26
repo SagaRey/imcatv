@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
-<body>
+<body class="<%= yield(:class) %>">
   <%= render 'layouts/header' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
