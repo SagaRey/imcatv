@@ -123,6 +123,8 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
     border-top-right-radius: 3px;
   }
   .caption {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     span {
       color: #fff;
       font-size: $font-size-base;
@@ -267,6 +269,9 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   }
 
   #carousel-generic {
+    padding: 1px;
+    margin-top: 15px;
+    margin-bottom: 3px;
     border: 0px;
     ol, .label, .carousel-control {
       opacity: 0;
