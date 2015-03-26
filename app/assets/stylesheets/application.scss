@@ -278,4 +278,10 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
       color: $imbatv-lighter;
     }
   }
+  .caption {
+    background-image: image_url('ti5.jpg');
+  }
+  #panels .panel-heading {
+    background-image: image_url('ti5.jpg');
+  }
 }
