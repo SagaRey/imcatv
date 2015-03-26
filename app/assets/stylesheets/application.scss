@@ -1,27 +1,27 @@
-// $purple: darken(#493B9A, 1.5%);
-$purple: #604e38;
-$purple-darkest: darken($purple, 16%);
-$purple-darker: darken($purple, 6%);
-$purple-dark: darken($purple, 2%);
-$purple-lightest: lighten($purple, 36%);
-$purple-lighter: lighten($purple, 12%);
-$purple-light: lighten($purple, 6%);
+// $imbatv: darken(#493B9A, 1.5%);
+$imbatv: #604e38;
+$imbatv-darkest: darken($imbatv, 16%);
+$imbatv-darker: darken($imbatv, 6%);
+$imbatv-dark: darken($imbatv, 2%);
+$imbatv-lightest: lighten($imbatv, 36%);
+$imbatv-lighter: lighten($imbatv, 12%);
+$imbatv-light: lighten($imbatv, 6%);
 
 $grid-gutter-width: 9px;
 
-$navbar-inverse-bg: $purple-darker;
+$navbar-inverse-bg: $imbatv-darker;
 
 $navbar-inverse-color: #fff;
 
 $navbar-inverse-link-color: #fff;
 
-$alert-success-bg: $purple-dark;
+$alert-success-bg: $imbatv-dark;
 
 $alert-success-text: #fff;
 
-$brand-primary: $purple;
+$brand-primary: $imbatv;
 
-$input-border-focus: $purple-lighter;
+$input-border-focus: $imbatv-lighter;
 
 $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 
@@ -30,7 +30,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 @import 'bootstrap-datetimepicker';
 
 .header {
-  box-shadow: 0px 1px 3px $purple-darkest;
+  box-shadow: 0px 1px 3px $imbatv-darkest;
 }
 
 .bodyer {
@@ -39,9 +39,9 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 .footer {
-  // background-color: $purple-dark;
+  // background-color: $imbatv-dark;
   background-color: transparent;
-  // box-shadow: 0px 3px 6px $purple-darkest inset;
+  // box-shadow: 0px 3px 6px $imbatv-darkest inset;
   border-radius: 4px;
   span {
     padding: 8px;
@@ -58,7 +58,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 #carousel-generic {
-  border: 1px solid $purple-darkest;
+  border: 1px solid $imbatv-darkest;
   border-radius: 4px;
   img {
     border-radius: 3px;
@@ -71,14 +71,14 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 #search {
-  border: 1px solid $purple-darkest;
+  border: 1px solid $imbatv-darkest;
   background-color: transparent;
   color: #fff;
-  box-shadow: -1px 1px 1px $purple-darkest inset;
+  box-shadow: -1px 1px 1px $imbatv-darkest inset;
 }
 
 .form-control-feedback {
-  color: $purple-lightest;
+  color: $imbatv-lightest;
 }
 
 .label-carousel {
@@ -99,7 +99,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 
 .panel {
   margin-bottom: 6px;
-  border: 1px solid $purple-darkest;
+  border: 1px solid $imbatv-darkest;
 }
 
 #notify {
@@ -116,8 +116,8 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 .thumbnail {
   padding: 0px;
   margin-bottom: 6px;
-  border: 1px solid $purple-darkest;
-  background-color: $purple-dark;
+  border: 1px solid $imbatv-darkest;
+  background-color: $imbatv-dark;
   img {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -128,7 +128,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
       font-size: $font-size-base;
       .badge {
         background-color: #fff;
-        color: $purple-dark;
+        color: $imbatv-dark;
       }
     }
   }
@@ -144,7 +144,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 
 #login {
   height: 800px;
-  background-color: $purple-dark;
+  background-color: $imbatv-dark;
 }
 
 .time, .view {
@@ -152,7 +152,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 .title {
-  border-left: 6px solid $purple-dark;
+  border-left: 6px solid $imbatv-dark;
   border-radius: 3px;
 }
 
@@ -172,9 +172,9 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   padding: 2px 20px;
   margin-bottom: 12px;
   border-radius: 2px;
-  border-left: 3px solid $purple-dark;
+  border-left: 3px solid $imbatv-dark;
   p {
-    color: $purple-darker;
+    color: $imbatv-darker;
     font-size: ceil($font-size-base * 1.02);
     span {
       color: darken($gray-lighter, 12%);
@@ -270,6 +270,12 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
     border: 0px;
     ol, .label, .carousel-control {
       opacity: 0;
+    }
+  }
+
+  .singer {
+    h2 {
+      color: $imbatv-lighter;
     }
   }
 }
