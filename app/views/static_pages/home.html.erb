@@ -1,20 +1,6 @@
 <% provide(:title, "首页") %>
 <div id="home" class="container bodyer">
-  <div class="row">
-    <div class="col-md-12">
-      <div id="notify" class="panel panel-primary">
-      <% if @notify.blank? %>
-        <div class="panel-heading" style="padding-top: 0px;"></div>
-      <% else -%>
-        <div class="panel-heading">
-            <a href="#"><%= link_to @notify.title, @notify %></a>
-            <button id="notify-close" type="button" class="close">&times;</button>
-        </div>
-      <% end -%>
-      </div>
-    </div>
-  </div>
-  <div class="row">
+  <div class="row" style="margin-top:15px">
     <div id="carousel" class="col-md-12">
       <div id="carousel-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -24,8 +10,8 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <a class="item active" href="#">
-            <span class="label label-carousel">Dota2: 维萨吉</span>
-            <img src="<%= image_path 'dota22.jpg' %>" alt="Dota2">
+            <span class="label label-carousel">Dota2: 国际邀请赛</span>
+            <img src="<%= image_path 'ti52.jpg' %>" alt="Dota2">
           </a>
           <a class="item" href="#">
             <span class="label label-carousel">炉石传说 冒险模式: 黑石山的火焰</span>
@@ -101,4 +87,7 @@
     // $('#home').animate({marginTop: "-55px"}, 120);
     $('#notify').html('<div class="panel-heading" style="padding-top: 0px;"></div>');
   });
+  $('#carousel-generic ol').animate({opacity:'1'}, 8000);
+  $('#carousel-generic .label').animate({opacity:'1'}, 8000);
+  $('#carousel-generic .carousel-control').animate({opacity:'1'}, 8000);
 </script>

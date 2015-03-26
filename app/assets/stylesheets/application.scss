@@ -1,5 +1,6 @@
-$purple: darken(#493B9A, 1.5%);
-$purple-darkest: darken($purple, 20%);
+// $purple: darken(#493B9A, 1.5%);
+$purple: #604e38;
+$purple-darkest: darken($purple, 16%);
 $purple-darker: darken($purple, 6%);
 $purple-dark: darken($purple, 2%);
 $purple-lightest: lighten($purple, 36%);
@@ -29,7 +30,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 @import 'bootstrap-datetimepicker';
 
 .header {
-  box-shadow: 0px 2px 6px $purple-darkest;
+  box-shadow: 0px 1px 3px $purple-darkest;
 }
 
 .bodyer {
@@ -71,7 +72,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 
 #search {
   border: 1px solid $purple-darkest;
-  background-color: $purple-darker;
+  background-color: transparent;
   color: #fff;
   box-shadow: -1px 1px 1px $purple-darkest inset;
 }
@@ -98,6 +99,7 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 
 .panel {
   margin-bottom: 6px;
+  border: 1px solid $purple-darkest;
 }
 
 #notify {
@@ -243,4 +245,23 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
   position: absolute;
   right: 20px;
   bottom: 5px;
+}
+
+// ti5
+
+body {
+  background-image: image_url('ti5.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+}
+
+.header {
+  background-color: transparent;
+}
+
+#carousel-generic {
+  ol, .label, .carousel-control {
+    opacity: 0;
+  }
 }
