@@ -4,6 +4,15 @@ class StaticPagesController < ApplicationController
     @news = News.order(created_at: :desc).take(8)
     @programs = Program.order(created_at: :desc).take(8)
     @notify = News.where(notify: true).order(created_at: :desc).first
+    unless @notify.nil?
+      if @news.include?(@notify)
+        @news.delete(@notify)
+        @news.unshift(@notify)
+      else
+        @news.unshift(@notify)
+        @news.pop
+      end
+    end
   end
 
   def login
@@ -72,136 +81,136 @@ class StaticPagesController < ApplicationController
 
   private
 
-    def update_dota2_live_list
+  def update_dota2_live_list
 
-      douyu = 'douyu'
-      zhanqi = 'zhanqi'
-      huomao = 'huomao'
-      douyu_url = 'http://www.douyutv.com'
-      zhanqi_url = 'http://www.zhanqi.tv'
-      huomao_url = 'http://www.huomaotv.com'
-      douyu_dota2_url = 'http://www.douyutv.com/directory/game/DOTA2'
-      zhanqi_dota2_url = 'http://www.zhanqi.tv/games/dota2'
-      huomao_dota2_url = 'http://www.huomaotv.com/live_list?gid=23'
+    douyu = 'douyu'
+    zhanqi = 'zhanqi'
+    huomao = 'huomao'
+    douyu_url = 'http://www.douyutv.com'
+    zhanqi_url = 'http://www.zhanqi.tv'
+    huomao_url = 'http://www.huomaotv.com'
+    douyu_dota2_url = 'http://www.douyutv.com/directory/game/DOTA2'
+    zhanqi_dota2_url = 'http://www.zhanqi.tv/games/dota2'
+    huomao_dota2_url = 'http://www.huomaotv.com/live_list?gid=23'
 
-      agent = Mechanize.new do |agent|
-        agent.user_agent_alias = 'Mac Safari'
-        agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        agent.max_file_buffer = 10000000
-      end
-
-      agent.get(douyu_dota2_url).search('//*[@id="item_data"]/ul/li').each do |list|
-        key = douyu + '.' + list.search('span.nnt').text
-        view = list.search('span.view').text
-        $dota2_live_list[key] = {
-          :site => douyu,
-          :img => list.search('img').attr('data-original').text,
-          :href => douyu_url + list.search('a').attr('href').text,
-          :title => list.search('a').attr('title').text,
-          :nnt => list.search('span.nnt').text,
-          :view => view,
-          :zbName => list.search('span.zbName').text
-        }
-        $dota2_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
-      end
-
-      agent.get(zhanqi_dota2_url).search('//*[@id="hotList"]/li').each do |list|
-        break if list.search('i').text == '休息'
-        key = zhanqi + '.' + list.search('a.anchor').text
-        view = list.search('span.dv').text
-        $dota2_live_list[key] = {
-          :site => zhanqi,
-          :img => list.search('img').attr('src').text,
-          :href => zhanqi_url + list.search('a').attr('href').text,
-          :title => list.search('a.name').text,
-          :nnt => list.search('a.anchor').text,
-          :view => view,
-          :zbName => list.search('a.game-name').text
-        }
-        $dota2_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
-      end
-
-      agent.get(huomao_dota2_url).search('//*[@id="live_list"]/div').each do |list|
-        break if list.search('.up_offline').text == '主播正在休息'
-        key = huomao + '.' + list.search('.LiveAuthor').text
-        view = list.search('.fans').text
-        $dota2_live_list[key] = {
-          :site => huomao,
-          :img => huomao_url + list.search('img').attr('src').text,
-          :href => huomao_url + list.search('.play_btn').attr('href').text,
-          :title => list.search('.VOD_title > dt > a').text,
-          :nnt => list.search('.LiveAuthor').text,
-          :view => view,
-          :zbName => list.search('.titleMb').text[0, 5]
-        }
-        $dota2_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
-      end
+    agent = Mechanize.new do |agent|
+      agent.user_agent_alias = 'Mac Safari'
+      agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      agent.max_file_buffer = 10000000
     end
 
-    def update_hs_live_list
-
-      douyu = 'douyu'
-      zhanqi = 'zhanqi'
-      huomao = 'huomao'
-      douyu_url = 'http://www.douyutv.com'
-      zhanqi_url = 'http://www.zhanqi.tv'
-      huomao_url = 'http://www.huomaotv.com'
-      douyu_hs_url = 'http://www.douyutv.com/directory/game/How'
-      zhanqi_hs_url = 'http://www.zhanqi.tv/games/how'
-      huomao_hs_url = 'http://www.huomaotv.com/live_list?gid=13'
-
-      agent = Mechanize.new do |agent|
-        agent.user_agent_alias = 'Mac Safari'
-        agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        agent.max_file_buffer = 10000000
-      end
-
-      agent.get(douyu_hs_url).search('//*[@id="item_data"]/ul/li').each do |list|
-        key = douyu + '.' + list.search('span.nnt').text
-        view = list.search('span.view').text
-        $hs_live_list[key] = {
-          :site => douyu,
-          :img => list.search('img').attr('data-original').text,
-          :href => douyu_url + list.search('a').attr('href').text,
-          :title => list.search('a').attr('title').text,
-          :nnt => list.search('span.nnt').text,
-          :view => view,
-          :zbName => list.search('span.zbName').text
-        }
-        $hs_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
-      end
-
-      agent.get(zhanqi_hs_url).search('//*[@id="hotList"]/li').each do |list|
-        break if list.search('i').text == '休息'
-        key = zhanqi + '.' + list.search('a.anchor').text
-        view = list.search('span.dv').text
-        $hs_live_list[key] = {
-          :site => zhanqi,
-          :img => list.search('img').attr('src').text,
-          :href => zhanqi_url + list.search('a').attr('href').text,
-          :title => list.search('a.name').text,
-          :nnt => list.search('a.anchor').text,
-          :view => view,
-          :zbName => list.search('a.game-name').text
-        }
-        $hs_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
-      end
-
-      agent.get(huomao_hs_url).search('//*[@id="live_list"]/div').each do |list|
-        break if list.search('.up_offline').text == '主播正在休息'
-        key = huomao + '.' + list.search('.LiveAuthor').text
-        view = list.search('.fans').text
-        $hs_live_list[key] = {
-          :site => huomao,
-          :img => huomao_url + list.search('img').attr('src').text,
-          :href => huomao_url + list.search('.play_btn').attr('href').text,
-          :title => list.search('.VOD_title > dt > a').text,
-          :nnt => list.search('.LiveAuthor').text,
-          :view => view,
-          :zbName => list.search('.titleMb').text[0, 5]
-        }
-        $hs_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
-      end
+    agent.get(douyu_dota2_url).search('//*[@id="item_data"]/ul/li').each do |list|
+      key = douyu + '.' + list.search('span.nnt').text
+      view = list.search('span.view').text
+      $dota2_live_list[key] = {
+        :site => douyu,
+        :img => list.search('img').attr('data-original').text,
+        :href => douyu_url + list.search('a').attr('href').text,
+        :title => list.search('a').attr('title').text,
+        :nnt => list.search('span.nnt').text,
+        :view => view,
+        :zbName => list.search('span.zbName').text
+      }
+      $dota2_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
     end
+
+    agent.get(zhanqi_dota2_url).search('//*[@id="hotList"]/li').each do |list|
+      break if list.search('i').text == '休息'
+      key = zhanqi + '.' + list.search('a.anchor').text
+      view = list.search('span.dv').text
+      $dota2_live_list[key] = {
+        :site => zhanqi,
+        :img => list.search('img').attr('src').text,
+        :href => zhanqi_url + list.search('a').attr('href').text,
+        :title => list.search('a.name').text,
+        :nnt => list.search('a.anchor').text,
+        :view => view,
+        :zbName => list.search('a.game-name').text
+      }
+      $dota2_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
+    end
+
+    agent.get(huomao_dota2_url).search('//*[@id="live_list"]/div').each do |list|
+      break if list.search('.up_offline').text == '主播正在休息'
+      key = huomao + '.' + list.search('.LiveAuthor').text
+      view = list.search('.fans').text
+      $dota2_live_list[key] = {
+        :site => huomao,
+        :img => huomao_url + list.search('img').attr('src').text,
+        :href => huomao_url + list.search('.play_btn').attr('href').text,
+        :title => list.search('.VOD_title > dt > a').text,
+        :nnt => list.search('.LiveAuthor').text,
+        :view => view,
+        :zbName => list.search('.titleMb').text[0, 5]
+      }
+      $dota2_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
+    end
+  end
+
+  def update_hs_live_list
+
+    douyu = 'douyu'
+    zhanqi = 'zhanqi'
+    huomao = 'huomao'
+    douyu_url = 'http://www.douyutv.com'
+    zhanqi_url = 'http://www.zhanqi.tv'
+    huomao_url = 'http://www.huomaotv.com'
+    douyu_hs_url = 'http://www.douyutv.com/directory/game/How'
+    zhanqi_hs_url = 'http://www.zhanqi.tv/games/how'
+    huomao_hs_url = 'http://www.huomaotv.com/live_list?gid=13'
+
+    agent = Mechanize.new do |agent|
+      agent.user_agent_alias = 'Mac Safari'
+      agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      agent.max_file_buffer = 10000000
+    end
+
+    agent.get(douyu_hs_url).search('//*[@id="item_data"]/ul/li').each do |list|
+      key = douyu + '.' + list.search('span.nnt').text
+      view = list.search('span.view').text
+      $hs_live_list[key] = {
+        :site => douyu,
+        :img => list.search('img').attr('data-original').text,
+        :href => douyu_url + list.search('a').attr('href').text,
+        :title => list.search('a').attr('title').text,
+        :nnt => list.search('span.nnt').text,
+        :view => view,
+        :zbName => list.search('span.zbName').text
+      }
+      $hs_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
+    end
+
+    agent.get(zhanqi_hs_url).search('//*[@id="hotList"]/li').each do |list|
+      break if list.search('i').text == '休息'
+      key = zhanqi + '.' + list.search('a.anchor').text
+      view = list.search('span.dv').text
+      $hs_live_list[key] = {
+        :site => zhanqi,
+        :img => list.search('img').attr('src').text,
+        :href => zhanqi_url + list.search('a').attr('href').text,
+        :title => list.search('a.name').text,
+        :nnt => list.search('a.anchor').text,
+        :view => view,
+        :zbName => list.search('a.game-name').text
+      }
+      $hs_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
+    end
+
+    agent.get(huomao_hs_url).search('//*[@id="live_list"]/div').each do |list|
+      break if list.search('.up_offline').text == '主播正在休息'
+      key = huomao + '.' + list.search('.LiveAuthor').text
+      view = list.search('.fans').text
+      $hs_live_list[key] = {
+        :site => huomao,
+        :img => huomao_url + list.search('img').attr('src').text,
+        :href => huomao_url + list.search('.play_btn').attr('href').text,
+        :title => list.search('.VOD_title > dt > a').text,
+        :nnt => list.search('.LiveAuthor').text,
+        :view => view,
+        :zbName => list.search('.titleMb').text[0, 5]
+      }
+      $hs_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
+    end
+  end
 
 end

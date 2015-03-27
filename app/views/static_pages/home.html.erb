@@ -42,7 +42,7 @@
             <div class="panel-heading">新闻<a href="news" class="badge pull-right">More</a></div>
             <ul class="list-group">
               <% @news.each do |news| %>
-              <li class="list-group-item"><%= link_to news.title[0..20], news %> <small class="pull-right time hidden-xs"><%= news.created_at.getlocal.to_s[5..-10] %></small></li>
+              <li class="list-group-item"><%= link_to news.title[0..20], news %> <span class="label label-primary"><%= "公告" if news.notify? %></span> <small class="pull-right time hidden-xs"><%= news.created_at.getlocal.to_s[5..-10] %></small></li>
               <% end -%>
             </ul>
           </div>
