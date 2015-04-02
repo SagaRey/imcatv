@@ -114,18 +114,18 @@ class StaticPagesController < ApplicationController
       $dota2_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
     end
 
-    agent.get(zhanqi_dota2_url).search('//*[@id="hotList"]/li').each do |list|
+    agent.get(zhanqi_dota2_url).search('#hotList li').each do |list|
       break if list.search('i').text == '休息'
-      key = zhanqi + '.' + list.search('a.anchor').text
-      view = list.search('span.dv').text
+      key = zhanqi + '.' + list.search('span.anchor').text
+      view = list.search('span.views span').text
       $dota2_live_list[key] = {
         :site => zhanqi,
         :img => list.search('img').attr('src').text,
         :href => zhanqi_url + list.search('a').attr('href').text,
-        :title => list.search('a.name').text,
-        :nnt => list.search('a.anchor').text,
+        :title => list.search('span.name').text,
+        :nnt => list.search('span.anchor').text,
         :view => view,
-        :zbName => list.search('a.game-name').text
+        :zbName => list.search('span.game-name').text
       }
       $dota2_live_list_sort[view.include?('万') ? view.to_f * 10000 + rand(100) : view.to_f] = key
     end
