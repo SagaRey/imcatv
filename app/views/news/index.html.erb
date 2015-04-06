@@ -1,0 +1,89 @@
+<% provide(:title, "新闻") %>
+<% provide(:class, "ti5") %>
+<div class="container bodyer">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+<!--           <% unless notice.nil? %>
+          <div class="alert alert-success alert-dismissible alert-notice" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <%= notice %>
+          </div>
+          <% end -%> -->
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">新闻
+              <% if admin_logged? %>
+              <span class="badge pull-right"><%= link_to '新建', new_news_path %></span>
+              <% end -%>
+            </div>
+            <table class="table">
+              <tbody>
+                <% @news.each do |news| %>
+                <tr>
+                  <% if admin_logged? %>
+                  <td class="hidden-sm hidden-md hidden-lg"><%= link_to news.title[0..8], news %><span class="label label-danger"><%= "公告" if news.notify? %></span></td>
+                  <td class="hidden-xs"><%= link_to news.title[0..20], news %> <span class="label label-danger"><%= "公告" if news.notify? %></span></td>
+                  <% else %>
+                  <td><%= link_to news.title[0..20], news %> <span class="label label-danger"><%= "公告" if news.notify? %></span></td>
+                  <% end -%>
+                  <td class="hidden-xs"><%= news.created_at.getlocal.to_s[0..-10] %></td>
+                  <% if admin_logged? %>
+                  <td><%= link_to '编辑', edit_news_path(news) %></td>
+                  <td><%= link_to '删除', news, method: :delete, data: { confirm: '确定删除?' } %></td>
+                  <td class="view"><%= news.view %></td>
+                  <% end -%>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <%= will_paginate @news, previous_label: "&laquo;", next_label: "&raquo;", class: "pull-left" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">24小时热门</div>
+            <table class="table">
+              <tbody>
+                <% @news_day.each do |news| %>
+                <tr>
+                  <td><%= link_to news.title[0..10], news %></td>
+                  <td><%= news.created_at.getlocal.to_s[11..15] %></td>
+                  <% if admin_logged? %>
+                  <td class="view"><%= news.view %></td>
+                  <% end -%>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">一周热门</div>
+            <table class="table">
+              <tbody>
+                <% @news_week.each do |news| %>
+                <tr>
+                  <td><%= link_to news.title[0..10], news %></td>
+                  <td><%= news.created_at.getlocal.to_s[5..9] %></td>
+                  <% if admin_logged? %>
+                  <td class="view"><%= news.view %></td>
+                  <% end -%>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

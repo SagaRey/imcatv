@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actor: MyString
+  introduction: MyString
+  picture: MyString
+  video1: MyString
+  video2: MyString
+  ballot1: 1
+
+two:
+  actor: MyString
+  introduction: MyString
+  picture: MyString
+  video1: MyString
+  video2: MyString
+  ballot1: 1

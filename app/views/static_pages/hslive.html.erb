@@ -1,0 +1,44 @@
+<% provide(:title, "炉石传说 - 直播聚合") %>
+<% provide(:class, "ti5") %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" style="margin-top:-12px; margin-bottom:30px">
+      <div class="row">
+        <% $hs_live_list_sort.sort{ |x, y| y <=> x }.each do |key, value| %>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+          <div class="panel panel-default">
+            <div class="panel-body" style="padding:0px">
+              <div class="thumbnail" style="padding:0px; margin-bottom:0px; border:0px">
+                <a href="<%= $hs_live_list[value][:href] %>" target="_blank">
+                <img class="lazy" src="<%= image_path 'hs.jpg' %>" data-original="<%= $hs_live_list[value][:img] %>" style="width:100%; border-top-left-radius:3px; border-top-right-radius:3px">
+                  <span class="label" style="position:absolute; right:8px; top:4px; background-color:<%= $color[$hs_live_list[value][:site]] %>">
+                    <h5 style="margin:2px"><%= $hs_live_list[value][:nnt] %></h5>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="panel-footer" style="padding:8px; border-color:<%= $color[$hs_live_list[value][:site]] %>">
+              <h5 class="hidden-xs hidden-sm" style="margin:0px"><%= $hs_live_list[value][:title][0, 14] %>
+                <small class="pull-right" style="color:<%= $color[$hs_live_list[value][:site]] %>"><span class="glyphicon glyphicon-user"></span> <%= $hs_live_list[value][:view] %></small>
+              </h5>
+              <h5 class="hidden-xs hidden-md hidden-lg" style="margin:0px"><%= $hs_live_list[value][:title][0, 11] %>
+                <small class="pull-right" style="color:<%= $color[$hs_live_list[value][:site]] %>"><span class="glyphicon glyphicon-user"></span> <%= $hs_live_list[value][:view] %></small>
+              </h5>
+              <h5 class="hidden-sm hidden-md hidden-lg" style="margin:0px"><%= $hs_live_list[value][:title][0, 7] %>
+                <small class="pull-right" style="color:<%= $color[$hs_live_list[value][:site]] %>"><span class="glyphicon glyphicon-user"></span> <%= $hs_live_list[value][:view] %></small>
+              </h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $('.thumbnail img').height($('.thumbnail img').width()/1.8);
+  $("img.lazy").lazyload();
+  window.onresize = function(){
+    $('.thumbnail img').height($('.thumbnail img').width()/1.8);
+  };
+</script>

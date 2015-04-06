@@ -1,56 +1,64 @@
-$purple: #493B9A;
-$purple-darkest: darken($purple, 24%);
-$purple-darker: darken($purple, 8%);
-$purple-dark: darken($purple, 3%);
-$purple-lightest: lighten($purple, 36%);
-$purple-lighter: lighten($purple, 12%);
-$purple-light: lighten($purple, 6%);
+// $imbatv: darken(#493B9A, 1.5%);
+$imbatv: darken(#7f6a4d, 6%);
+$imbatv-darkest: darken($imbatv, 16%);
+$imbatv-darker: darken($imbatv, 6%);
+$imbatv-dark: darken($imbatv, 2%);
+$imbatv-lightest: lighten($imbatv, 36%);
+$imbatv-lighter: lighten($imbatv, 12%);
+$imbatv-light: lighten($imbatv, 6%);
 
-$grid-gutter-width: 8px;
+$grid-gutter-width: 9px;
 
-$navbar-inverse-bg: $purple-darker;
+$navbar-inverse-bg: $imbatv-darker;
 
 $navbar-inverse-color: #fff;
 
 $navbar-inverse-link-color: #fff;
 
-$panel-default-heading-bg: $purple-dark;
+$alert-success-bg: $imbatv-dark;
 
-$panel-default-text: #fff;
+$alert-success-text: #fff;
 
-$panel-default-border: $purple;
+$brand-primary: $imbatv;
 
-$btn-primary-bg: $purple;
-
-$btn-primary-border: $purple-dark;
+$input-border-focus: $imbatv-lighter;
 
 $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 
 .header {
-  box-shadow: 0px 2px 6px $purple-darkest;
+  box-shadow: 0px 1px 3px $imbatv-darkest;
 }
 
 .bodyer {
   margin-top: -25px;
+  margin-bottom: 35px;
 }
 
 .footer {
-  margin-top: 12px;
-  margin-bottom: 12px;
-  background-color: $purple-dark;
-  // box-shadow: 0px 3px 6px $purple-darkest inset;
+  // background-color: $imbatv-dark;
+  background-color: transparent;
+  // box-shadow: 0px 3px 6px $imbatv-darkest inset;
   border-radius: 4px;
   span {
     padding: 8px;
     color: $gray-lighter;
+    a {
+      color: $gray-lighter;
+    }
   }
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
 }
 
 #carousel-generic {
-  border: 1px solid $purple-darkest;
+  border: 1px solid $imbatv-darkest;
   border-radius: 4px;
   img {
     border-radius: 3px;
@@ -63,14 +71,14 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 }
 
 #search {
-  border: 1px solid $purple-darkest;
-  background-color: $purple-darker;
+  border: 1px solid $imbatv-darkest;
+  background-color: transparent;
   color: #fff;
-  box-shadow: -1px 1px 1px $purple-darkest inset;
+  box-shadow: -1px 1px 1px $imbatv-darkest inset;
 }
 
 .form-control-feedback {
-  color: $purple-lightest;
+  color: $imbatv-lightest;
 }
 
 .label-carousel {
@@ -91,9 +99,10 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 
 .panel {
   margin-bottom: 6px;
+  border: 1px solid $imbatv-darkest;
 }
 
-#notice {
+#notify {
   margin-bottom: 0px;
   a {
     color: #fff;
@@ -107,19 +116,21 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 .thumbnail {
   padding: 0px;
   margin-bottom: 6px;
-  border: 1px solid $purple-darkest;
-  background-color: $purple-dark;
+  border: 1px solid $imbatv-darkest;
+  background-color: $imbatv-dark;
   img {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
   }
   .caption {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     span {
       color: #fff;
       font-size: $font-size-base;
       .badge {
         background-color: #fff;
-        color: $purple-dark;
+        color: $imbatv-dark;
       }
     }
   }
@@ -135,5 +146,147 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
 
 #login {
   height: 800px;
-  background-color: $purple-dark;
+  background-color: $imbatv-dark;
+}
+
+.time, .view {
+  color: $gray-light;
+}
+
+.title {
+  border-left: 6px solid $imbatv-dark;
+  border-radius: 3px;
+}
+
+.content {
+  font-size: $font-size-h4;
+  background-color: #fff;
+  padding: 20px 12px;
+  border: 1px solid $gray-lighter;
+  min-height: 360px;
+}
+
+.alert-notice {
+  padding-top: 5px;
+}
+
+.comment {
+  padding: 2px 20px;
+  margin-bottom: 12px;
+  border-radius: 2px;
+  border-left: 3px solid $imbatv-dark;
+  p {
+    color: $imbatv-darker;
+    font-size: ceil($font-size-base * 1.02);
+    span {
+      color: darken($gray-lighter, 12%);
+      font-size: ceil($font-size-base * 0.88);
+    }
+  }
+  footer::before {
+    color: $gray-lighter;
+  }
+  footer {
+    color: $gray-darker;
+    font-size: ceil($font-size-base * 1.06);
+  }
+}
+
+.kalaoke-img {
+  margin-top: 12px;
+  margin-bottom: -10px;
+}
+
+.singer {
+  h2 {
+    margin-top: 50px;
+    margin-bottom: 5px;
+  }
+  .panel-heading {
+    background-image: image_url("singest.jpg");
+  }
+  .panel-body {
+    height: 300px;
+    blockquote {
+      border: 0px;
+      padding: 20px 10px;
+      p {
+        font-size: ceil($font-size-h3 * 0.88);
+      }
+      footer::before {
+        color: $gray-lighter;
+      }
+      footer {
+        font-size: ceil($font-size-h4 * 0.92);
+      }
+    }
+  }
+}
+
+.pic {
+  width: 112px;
+  height: 112px;
+  border-radius: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 20px;
+  right: 26px;
+}
+
+.gravatar {
+  margin: 6px;
+  width: 100px;
+  height: 100px;
+}
+
+.karaoke {
+  margin-bottom: 16px;
+}
+
+.new-karaoke {
+  position: absolute;
+  right: 20px;
+  bottom: 5px;
+}
+
+// ti5
+
+.header {
+  background-image: image_url('ti5.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+}
+
+.ti5 {
+  background-image: image_url('ti5.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+
+  .header {
+    background-color: transparent;
+  }
+
+  #carousel-generic {
+    padding: 1px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    border: 0px;
+    ol, .label, .carousel-control {
+      opacity: 0;
+    }
+  }
+
+  .singer {
+    h2 {
+      color: $imbatv-lighter;
+    }
+  }
+  .caption {
+    background-image: image_url('ti5.jpg');
+  }
+  .panel-heading {
+    background-image: image_url('ti5.jpg');
+  }
 }

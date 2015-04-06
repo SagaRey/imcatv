@@ -1,0 +1,72 @@
+<% provide(:title, "游戏麦霸我最6") %>
+<% provide(:class, "ti5") %>
+<div class="container bodyer">
+  <div class="row karaoke">
+    <div class="col-md-12">
+<!--       <% unless notice.nil? %>
+      <div class="alert alert-success alert-dismissible alert-notice" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= notice %>
+      </div>
+      <% end -%> -->
+      <img src="<%= image_path 'singer.jpg' %>" alt="游戏麦霸我最6" class="img-rounded img-responsive kalaoke-img">
+      <% if admin_logged? %>
+      <%= link_to '新建', new_karaoke_path, class: "btn btn-default new-karaoke" %>
+      <% end -%>
+    </div>
+  </div>
+  <div class="row">
+    <% @karaokes.each do |karaoke| %>
+    <div class="col-md-4">
+      <div class="panel panel-primary singer">
+        <div class="panel-heading">
+          <h2><%= karaoke.actor %></h2>
+          <div class="pic">
+            <%= image_tag karaoke.picture.url, class: "gravatar img-circle" if karaoke.picture? %>
+          </div>
+        </div>
+        <div class="panel-body">
+        <blockquote>
+          <p><%= karaoke.actor %></p>
+          <footer><%= karaoke.introduction %></footer>
+        </blockquote>
+        </div>
+        <table class="table">
+          <tr>
+            <% if karaoke.music1.blank? %>
+            <td><a class="btn btn-lg btn-block btn-default disabled">敬请期待</a></td>
+            <% else %>
+            <td width="50%"><a target="_blank" href="<%= karaoke.video1 %>" class="btn btn-lg btn-block btn-default"><%= karaoke.music1 %></a></td>
+            <% end -%>
+            <% if karaoke.music2.blank? %>
+            <td><a class="btn btn-lg btn-block btn-default disabled">敬请期待</a></td>
+            <% else %>
+            <td width="50%"><a target="_blank" href="<%= karaoke.video2 %>" class="btn btn-lg btn-block btn-default"><%= karaoke.music2 %></a></td>
+            <% end -%>
+          </tr>
+          <tr>
+            <% if karaoke.vote? %>
+              <% if cookies.permanent[karaoke.actor.downcase].nil? %>
+                <td colspan="2"><%= link_to "投TA一票", karaoke, class: "btn btn-lg btn-block btn-primary" %></td>
+              <% else %>
+              <td colspan="2"><a class="btn btn-lg btn-block btn-primary disabled">当前票数: <small><%= karaoke.ballot1 %></small></a></td>
+              <% end -%>
+            <% else %>
+              <% if karaoke.ballot1 == 0 %>
+              <td colspan="2"><a class="btn btn-lg btn-block btn-primary disabled">敬请期待</a></td>
+              <% else %>
+              <td colspan="2"><a class="btn btn-lg btn-block btn-primary disabled">第一轮总票数: <%= karaoke.ballot1 %> </a></td>
+              <% end -%>
+            <% end -%>
+          </tr>
+        </table>
+        <% if admin_logged? %>
+        <div class="panel-footer">
+          <%= link_to '编辑', edit_karaoke_path(karaoke), class: "btn btn-default" %>
+          <%= link_to '删除', karaoke, method: :delete, data: { confirm: '确认删除?' }, class: "btn btn-default" %>
+        </div>
+        <% end -%>
+      </div>
+    </div>
+    <% end %>
+  </div>

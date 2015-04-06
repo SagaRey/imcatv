@@ -13,14 +13,14 @@ require 'mina/git'
 set :domain, '114.215.89.183'
 set :deploy_to, '/home/saga/imbatv'
 set :repository, 'git@github.com:SagaRey/testtv.git'
-set :branch, 'master'
+set :branch, 'develop'
 
 # For system-wide RVM install.
 #   set :rvm_path, '/usr/local/rvm/bin/rvm'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log']
+set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'public/uploads', 'log']
 
 # Optional settings:
 #   set :user, 'foobar'    # Username in the server to SSH to.
@@ -48,9 +48,15 @@ task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/config"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/config"]
 
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/public"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/public"]
+
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/public/uploads"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/public/uploads"]
+
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue! %[touch "#{deploy_to}/#{shared_path}/config/secrets.yml"]
-  queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml and secrets.yml'."]
+  queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml, secrets.yml and public/uploads'."]
 end
 
 desc "Deploys the current version to the server."

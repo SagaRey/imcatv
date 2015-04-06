@@ -1,0 +1,35 @@
+<%= form_for(@program) do |f| %>
+<% if @program.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@program.errors.count, "error") %> prohibited this program from being saved:</h2>
+
+  <ul>
+    <% @program.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <h4>时间</h4>
+  <div class='input-group date' id='datetimepicker'>
+    <%= f.text_field :datatime, class: "form-control", placeholder: "时间" %>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+  </div>
+</div>
+<div class="form-group">
+  <h4>节目</h4>
+  <%= f.text_field :content, class: "form-control", placeholder: "节目" %>
+</div>
+<%= f.submit "提交", class: "btn btn-primary" %>
+<% end %>
+<br>
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker').datetimepicker({
+      locale: 'zh-cn'
+    });
+  });
+</script>

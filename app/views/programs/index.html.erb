@@ -1,0 +1,43 @@
+<% provide(:title, "节目单") %>
+<% provide(:class, "ti5") %>
+<div class="container bodyer">
+  <div class="row">
+    <div class="col-md-12">
+<!--       <% unless notice.nil? %>
+      <div class="alert alert-success alert-dismissible alert-notice" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= notice %>
+      </div>
+      <% end -%> -->
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">节目单
+          <% if admin_logged? %>
+          <span class="badge pull-right"><%= link_to '新建', new_program_path %></span>
+          <% end -%>
+        </div>
+        <table class="table">
+          <tbody>
+            <% @programs.each do |program| %>
+            <tr>
+              <td><%= link_to program.datatime[5..-1], program %></td>
+              <% if admin_logged? %>
+              <td class="hidden-xs"><%= program.content %></td>
+              <% else %>
+              <td><%= program.content %></td>
+              <% end -%>
+              <% if admin_logged? %>
+              <td><%= link_to '编辑', edit_program_path(program) %></td>
+              <td><%= link_to '删除', program, method: :delete, data: { confirm: '确定删除?' } %></td>
+              <% end -%>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <%= will_paginate @programs, previous_label: "&laquo;", next_label: "&raquo;", class: "pull-left" %>
+    </div>
+  </div>
+</div>

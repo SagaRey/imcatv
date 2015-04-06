@@ -1,0 +1,58 @@
+<%= form_for(@karaoke, html: { multipart: true }) do |f| %>
+<% if @karaoke.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@karaoke.errors.count, "error") %> prohibited this karaoke from being saved:</h2>
+
+  <ul>
+    <% @karaoke.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <h4>选手</h4>
+  <%= f.text_field :actor, class: "form-control", placeholder: "选手姓名" %>
+</div>
+<div class="form-group">
+  <h4>简介</h4>
+  <%= f.text_area :introduction, class: "form-control", placeholder: "选手简介", rows: 5 %>
+</div>
+<div class="form-group">
+  <h4>上传头像</h4>
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', type: "file", class: "filestyle" %>
+</div>
+<div class="form-group">
+  <h4>曲目 1</h4>
+  <%= f.text_field :music1, class: "form-control", placeholder: "曲目 1" %>
+</div>
+<div class="form-group">
+  <h4>曲目 1 视频</h4>
+  <%= f.text_field :video1, class: "form-control", placeholder: "曲目 1 视频地址" %>
+</div>
+<div class="form-group">
+  <h4>曲目 2</h4>
+  <%= f.text_field :music2, class: "form-control", placeholder: "曲目 2" %>
+</div>
+<div class="form-group">
+  <h4>曲目 2 视频</h4>
+  <%= f.text_field :video2, class: "form-control", placeholder: "曲目 2 视频地址" %>
+</div>
+<div class="checkbox">
+  <label>
+    <%= f.check_box :vote %> 允许投票?
+  </label>
+</div>
+<%= f.submit "提交", class: "btn btn-primary" %>
+<% end %>
+<br>
+<script>
+  $(":file").filestyle({input: false, buttonText: "选择图片", iconName: "glyphicon-picture", buttonName: "btn-default"});
+  $('#karaoke_picture').bind('change', function() {
+    size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('请选择一张小于5MB的图片');
+    }
+  });
+</script>

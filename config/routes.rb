@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
+  resources :karaokes
+
+  resources :programs
+
+  resources :news do
+    resources :comments
+  end
+
   root 'static_pages#home'
 
   post     'login'      =>  'static_pages#login'
 
-  get     'manage'      =>  'static_pages#manage'
+  get     'logout'      =>  'static_pages#logout'
+
+  get     'ileague'     =>  'static_pages#ileague'
+
+  get     'dac'         =>  'static_pages#dac'
+
+  get     'dota2live'   =>  'static_pages#dota2live'
+
+  get     'hslive'      =>  'static_pages#hslive'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
