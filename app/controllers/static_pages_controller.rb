@@ -13,8 +13,8 @@ class StaticPagesController < ApplicationController
     t1.join(3)
     t2.join(3)
     t3.join(3)
-    @news = News.order(created_at: :desc).take(12)
-    @programs = Program.order(created_at: :desc).take(12)
+    @news = News.order(created_at: :desc).take(15)
+    @programs = Program.order(created_at: :desc).take(15)
     @notify = News.where(notify: true).order(created_at: :desc).first
     unless @notify.nil?
       if @news.include?(@notify)
