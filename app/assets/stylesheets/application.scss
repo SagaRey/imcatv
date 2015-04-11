@@ -290,3 +290,51 @@ $font-family-sans-serif: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, 
     background-image: image_url('ti5.jpg');
   }
 }
+
+// home livelist
+
+#livelist, #gusolist {
+  .nav {
+    @extend .panel;
+    background-image: image_url('ti5.jpg');
+    a {
+      color: $gray-light;
+      &:hover {
+        background-color: transparent;
+        border: 0;
+        color: $gray-lighter;
+      }
+    }
+    .pull-right {
+      a {
+        color: $imbatv-lighter;
+        &:hover {
+          background-color: transparent;
+          border: 0;
+        }
+      }
+    }
+    .active {
+      a {
+        border: 0;
+        background-color: transparent;
+        color: #fff;
+      }
+    }
+  }
+  .list-group {
+    margin-bottom: 8px;
+    border-radius: 4px;
+    background-image: image_url('ti5.jpg');
+    li {
+      border: 1px solid $imbatv-darkest;
+      background-color: transparent;
+    }
+    a {
+      color: $gray-lighter;
+    }
+    small {
+      color: $imbatv-lighter;
+    }
+  }
+}

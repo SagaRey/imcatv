@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="row" id="panels">
-  <div class="col-md-8">
+    <div class="col-md-9">
       <div class="row">
         <div class="col-md-12">
           <div class="panel panel-primary">
@@ -59,8 +59,70 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="row">
+        <div class="col-md-12">
+          <div id="livelist" role="tabpanel">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#dota2" aria-controls="dota2" role="tab" data-toggle="tab">Dota2</a></li>
+              <li role="presentation"><a href="#hs" aria-controls="hs" role="tab" data-toggle="tab">炉石传说</a></li>
+              <li class="pull-right disabled"><a href="#">直播聚合</a></li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="dota2">
+                <ul class="list-group">
+                  <% $dota2_live_list_sort.sort{ |x, y| y <=> x }[0..8].each do |key, value| %>
+                  <li class="list-group-item">
+                    <a href="<%= $dota2_live_list[value][:href] %>" target="_blank">
+                      <span style="color:<%= $color[$dota2_live_list[value][:site]] %>">●</span> <%= $dota2_live_list[value][:nnt] %>
+                    </a>
+                    <small class="pull-right"><%= $dota2_live_list[value][:view] %> <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></small>
+                  </li>
+                  <% end -%>
+                </ul>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="hs">
+                <ul class="list-group">
+                  <% $hs_live_list_sort.sort{ |x, y| y <=> x }[0..8].each do |key, value| %>
+                  <li class="list-group-item">
+                    <a href="<%= $hs_live_list[value][:href] %>" target="_blank">
+                      <span style="color:<%= $color[$hs_live_list[value][:site]] %>">●</span> <%= $hs_live_list[value][:nnt] %>
+                    </a>
+                    <small class="pull-right"><%= $hs_live_list[value][:view] %> <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></small>
+                  </li>
+                  <% end -%>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div id="gusolist" role="tabpanel">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#dota2list" aria-controls="dota2" role="tab" data-toggle="tab">Dota2</a></li>
+              <li role="presentation"><a href="#hslist" aria-controls="hs" role="tab" data-toggle="tab">炉石传说</a></li>
+              <li class="pull-right disabled"><a href="#">最近比赛</a></li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="dota2list">
+                <ul class="list-group">
+                  <% $dota2_guso_list[0..8].each do |key| %>
+                  <li class="list-group-item">
+                    <a href="#">
+                      <%= key[:opp1] %> <small>vs</small> <%= key[:opp2] %>
+                    </a>
+                    <small class="pull-right"><%= key[:status] %></small>
+                  </li>
+                  <% end -%>
+                </ul>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="hslist">
+                <ul class="list-group">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-md-12">
           <div class="thumbnail">
             <a href="karaokes"><img src="<%= image_path 'sing.jpg' %>" alt="游戏麦霸我最6"></a>
