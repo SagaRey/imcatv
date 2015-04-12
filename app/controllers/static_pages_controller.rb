@@ -28,7 +28,7 @@ class StaticPagesController < ApplicationController
   end
 
   def dota2gusolist
-    if $dota2_guso_update_time.nil? || (Time.zone.now.getlocal - $dota2_guso_update_time > 116)
+    if $dota2_guso_update_time.nil? || (Time.zone.now.getlocal - $dota2_guso_update_time > 172)
       $dota2_guso_list = []
       update_dota2_guso_list
     end
@@ -47,6 +47,8 @@ class StaticPagesController < ApplicationController
         status = list.search('.status span').last.text.sub('h', '小时').sub('m', '分').sub('s', '秒').sub('Live', '进行中')
         $dota2_guso_list << {opp1: opp1, opp2: opp2, status: status}
       end
+    rescue Exception => e
+      nil
     end
     $dota2_guso_update_time = Time.zone.now.getlocal
   end
