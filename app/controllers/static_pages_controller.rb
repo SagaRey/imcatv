@@ -10,9 +10,9 @@ class StaticPagesController < ApplicationController
     t3 = Thread.new do
       dota2gusolist
     end
-    t1.join(5)
-    t2.join(5)
-    t3.join(5)
+    t1.join(6)
+    t2.join(6)
+    t3.join(6)
     @news = News.order(created_at: :desc).take(16)
     @programs = Program.order(created_at: :desc).take(16)
     @notify = News.where(notify: true).order(created_at: :desc).first
@@ -29,8 +29,10 @@ class StaticPagesController < ApplicationController
 
   def dota2gusolist
     if $dota2_guso_update_time.nil? || (Time.zone.now.getlocal - $dota2_guso_update_time > 58)
-      $dota2_guso_list = []
-      update_dota2_guso_list
+      begin
+        $dota2_guso_list = []
+        update_dota2_guso_list
+      end
     end
   end
 
