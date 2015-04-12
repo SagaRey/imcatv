@@ -29,8 +29,12 @@ class StaticPagesController < ApplicationController
 
   def dota2gusolist
     if $dota2_guso_update_time.nil? || (Time.zone.now.getlocal - $dota2_guso_update_time > 172)
-      $dota2_guso_list = []
-      update_dota2_guso_list
+      begin
+        $dota2_guso_list = []
+        update_dota2_guso_list
+      rescue Exception => e
+        nil
+      end
     end
   end
 
@@ -40,15 +44,11 @@ class StaticPagesController < ApplicationController
       agent.verify_mode = OpenSSL::SSL::VERIFY_NONE
       agent.max_file_buffer = 10000000
     end
-    begin
-      agent.get('http://www.gosugamers.net/dota2').search('#gb-matches tr').each do |list|
-        opp1 = list.search('.opp1 span').last.text
-        opp2 = list.search('.opp2 span').last.text
-        status = list.search('.status span').last.text.sub('h', '小时').sub('m', '分').sub('s', '秒').sub('Live', '进行中')
-        $dota2_guso_list << {opp1: opp1, opp2: opp2, status: status}
-      end
-    rescue Exception => e
-      nil
+    agent.get('http://www.gosugamers.net/dota2').search('#gb-matches tr').each do |list|
+      opp1 = list.search('.opp1 span').last.text
+      opp2 = list.search('.opp2 span').last.text
+      status = list.search('.status span').last.text.sub('h', '小时').sub('m', '分').sub('s', '秒').sub('Live', '进行中')
+      $dota2_guso_list << {opp1: opp1, opp2: opp2, status: status}
     end
     $dota2_guso_update_time = Time.zone.now.getlocal
   end
