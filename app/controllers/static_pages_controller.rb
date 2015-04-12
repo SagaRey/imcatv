@@ -80,15 +80,19 @@ class StaticPagesController < ApplicationController
 
       $dota2_anchor_intro = {}
 
-      update_dota2_live_list
-      $dota2_update_time = Time.zone.now.getlocal
+      begin
+        update_dota2_live_list
+        $dota2_update_time = Time.zone.now.getlocal
+      end
     end
 
     if Time.now - $dota2_update_time > 58
-      $dota2_live_list.clear
-      $dota2_live_list_sort.clear
-      update_dota2_live_list
-      $dota2_update_time = Time.zone.now.getlocal
+      begin
+        $dota2_live_list.clear
+        $dota2_live_list_sort.clear
+        update_dota2_live_list
+        $dota2_update_time = Time.zone.now.getlocal
+      end
     end
 
   end
@@ -102,15 +106,19 @@ class StaticPagesController < ApplicationController
 
       $hs_anchor_intro = {}
 
-      update_hs_live_list
-      $hs_update_time = Time.zone.now.getlocal
+      begin
+        update_hs_live_list
+        $hs_update_time = Time.zone.now.getlocal
+      end
     end
 
     if Time.now - $hs_update_time > 58
-      $hs_live_list.clear
-      $hs_live_list_sort.clear
-      update_hs_live_list
-      $hs_update_time = Time.zone.now.getlocal
+      begin
+        $hs_live_list.clear
+        $hs_live_list_sort.clear
+        update_hs_live_list
+        $hs_update_time = Time.zone.now.getlocal
+      end
     end
 
   end
